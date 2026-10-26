@@ -1,0 +1,7 @@
+node_modules
+dist
+.env
+.git
+desarrollo.sqlite
+desarrollo.sqlite-journal
+npm-debug.log

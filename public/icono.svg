@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f2038" />
+      <stop offset="50%" stop-color="#1a1a2e" />
+      <stop offset="100%" stop-color="#121220" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5cb68" />
+      <stop offset="50%" stop-color="#e2b04a" />
+      <stop offset="100%" stop-color="#c69532" />
+    </linearGradient>
+    <linearGradient id="pageGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e7e8f0" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#e2b04a" flood-opacity="0.35" />
+    </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Background rounded squircle -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="rgba(226, 176, 74, 0.25)" stroke-width="4" />
+
+  <!-- Outer halo glow -->
+  <circle cx="256" cy="246" r="140" fill="url(#goldGrad)" opacity="0.12" />
+
+  <!-- Floating Star sparks -->
+  <path d="M 256 90 L 260 106 L 276 110 L 260 114 L 256 130 L 252 114 L 236 110 L 252 106 Z" fill="#f8edda" opacity="0.9" />
+  <path d="M 380 150 L 382 160 L 392 162 L 382 164 L 380 174 L 378 164 L 368 162 L 378 160 Z" fill="#e2b04a" opacity="0.8" />
+  <path d="M 132 165 L 134 175 L 144 177 L 134 179 L 132 189 L 130 179 L 120 177 L 130 175 Z" fill="#e2b04a" opacity="0.75" />
+
+  <!-- Open Book Graphic -->
+  <g filter="url(#shadow)">
+    <!-- Book Backing / Cover Shadow -->
+    <path d="M 256 360 C 210 338 150 334 100 344 L 100 200 C 150 190 210 194 256 216 C 302 194 362 190 412 200 L 412 344 C 362 334 302 338 256 360 Z" fill="#0d0d18" opacity="0.5" />
+
+    <!-- Left Page Base -->
+    <path d="M 256 350 C 210 328 152 324 106 334 L 106 186 C 152 176 210 180 256 202 Z" fill="url(#pageGrad)" />
+    
+    <!-- Left Page Lines -->
+    <path d="M 136 226 L 226 218" stroke="#a2a3b8" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 136 248 L 226 240" stroke="#a2a3b8" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 136 270 L 210 263" stroke="#a2a3b8" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 136 292 L 220 285" stroke="#a2a3b8" stroke-width="4.5" stroke-linecap="round" />
+
+    <!-- Right Page Base -->
+    <path d="M 256 350 C 302 328 360 324 406 334 L 406 186 C 360 176 302 180 256 202 Z" fill="#ffffff" />
+    
+    <!-- Right Page Lines -->
+    <path d="M 286 218 L 376 226" stroke="#c2c3d5" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 286 240 L 376 248" stroke="#c2c3d5" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 286 263 L 360 270" stroke="#c2c3d5" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M 286 285 L 370 292" stroke="#c2c3d5" stroke-width="4.5" stroke-linecap="round" />
+
+    <!-- Center Spine & Ribbon Bookmark -->
+    <path d="M 253 202 L 259 202 L 259 356 L 253 356 Z" fill="#d2a138" />
+    <path d="M 256 200 L 256 385 L 265 375 L 274 385 L 274 206 Z" fill="url(#goldGrad)" filter="url(#glow)" />
+  </g>
+
+  <!-- Golden Bookmark Star / Accent -->
+  <circle cx="265" cy="396" r="6" fill="#f8edda" />
+</svg>
