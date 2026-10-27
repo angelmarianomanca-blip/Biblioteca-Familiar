@@ -78,25 +78,32 @@ export async function crearBaseDeDatos(
   const usarTurso = tieneCredencialesTurso && !forzarLocal;
 
   if (usarTurso) {
-    // Modo Turso con @libsql/client
-    const clienteLibsql = crearClienteLibsql({
-      url: urlTurso!,
-      authToken: tokenTurso!,
-    });
-
     try {
-      await clienteLibsql.execute("PRAGMA foreign_keys = ON");
-    } catch {
-      // En Turso / libSQL las claves foráneas están habilitadas a nivel de servidor;
-      // libSQL puede bloquear PRAGMA si la sesión es HTTP o tiene permisos restringidos.
-    }
-    const baseDatos = crearInstanciaDrizzleLibsql(clienteLibsql, { schema: esquema });
+      // Modo Turso con @libsql/client
+      const clienteLibsql = crearClienteLibsql({
+        url: urlTurso!,
+        authToken: tokenTurso!,
+      });
 
-    return {
-      baseDatos: baseDatos as BaseDatosBiblioteca,
-      cliente: clienteLibsql as unknown as ClienteBaseDeDatos,
-      modo: "turso",
-    };
+      try {
+        await clienteLibsql.execute("PRAGMA foreign_keys = ON");
+      } catch {
+        // En Turso / libSQL las claves foráneas están habilitadas a nivel de servidor;
+        // libSQL puede bloquear PRAGMA si la sesión es HTTP o tiene permisos restringidos.
+      }
+      const baseDatos = crearInstanciaDrizzleLibsql(clienteLibsql, { schema: esquema });
+
+      return {
+        baseDatos: baseDatos as BaseDatosBiblioteca,
+        cliente: clienteLibsql as unknown as ClienteBaseDeDatos,
+        modo: "turso",
+      };
+    } catch (error) {
+      console.error(
+        "No fue posible inicializar Turso; iniciando con base local SQLite de respaldo:",
+        error,
+      );
+    }
   }
 
   // Modo SQLite local con better-sqlite3
