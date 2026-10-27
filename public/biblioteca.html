@@ -4765,10 +4765,116 @@
       margin-bottom: 14px;
       color: #422006;
     }
-    .acciones-traduccion {
+    .grupo-botones-catalogo {
       display: flex;
-      gap: 9px;
+      align-items: center;
+      gap: 8px;
+    }
+    .boton-cargar-pdf-header {
+      display: inline-flex;
+      min-height: 39px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 13px;
+      border: 1px solid #e2b04a;
+      border-radius: 11px;
+      color: #fff;
+      background: #202038;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    .boton-cargar-pdf-header:hover {
+      background: #2d2d4c;
+      border-color: #f5d07c;
+      transform: translateY(-1px);
+    }
+    .boton-subir-pdf-destacado {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 0 16px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(226, 176, 74, 0.25);
+    }
+    .boton-explorar-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 6px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(226, 176, 74, 0.2);
+    }
+    .barra-busqueda-lector {
+      margin-bottom: 14px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: #fbfbfd;
+      border: 1px solid #e4e4ed;
+      animation: aparecer-suave 0.15s ease;
+    }
+    .barra-busqueda-lector-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .barra-busqueda-lector-input input {
+      flex: 1;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      outline: none;
+      font-size: 12px;
+    }
+    .barra-busqueda-lector-input input:focus {
+      border-color: var(--dorado);
+    }
+    .chips-paginas-busqueda {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       flex-wrap: wrap;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+    .chip-pagina {
+      padding: 5px 10px;
+      border-radius: 7px;
+      border: 1px solid #dfdfea;
+      background: #fff;
+      color: var(--azul-oscuro);
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.1s ease;
+    }
+    .chip-pagina:hover,
+    .chip-pagina.actual {
+      background: #fbf0d9;
+      border-color: var(--dorado);
+      color: #724e10;
+    }
+    @media (max-width: 600px) {
+      .boton-cargar-pdf-header {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        min-height: 44px;
+        justify-content: center;
+        padding: 0;
+      }
+      .boton-cargar-pdf-header span {
+        display: none;
+      }
     }
   </style>
 </head>
@@ -6749,7 +6855,7 @@
       }
 
       /** Modal para crear o editar los campos principales de un libro con subida de PDF/TXT y creación de categorías. */
-      function FormularioLibroModal({ abierto, libro, categorias, alCerrar, alGuardar, alCrearCategoria }) {
+      function FormularioLibroModal({ abierto, libro, categorias, alCerrar, alGuardar, alCrearCategoria, autoAbrirSelector }) {
         const notificar = React.useContext(ContextoNotificaciones);
         const [campos, establecerCampos] = React.useState({});
         const [guardando, establecerGuardado] = React.useState(false);
@@ -6784,7 +6890,14 @@
           establecerError("");
           establecerArchivoCargadoInfo(null);
           establecerCreandoCategoria(false);
-        }, [abierto, libro, categorias]);
+
+          if (autoAbrirSelector) {
+            const temporizador = setTimeout(() => {
+              inputArchivoRef.current?.click();
+            }, 180);
+            return () => clearTimeout(temporizador);
+          }
+        }, [abierto, libro, categorias, autoAbrirSelector]);
 
         /** Guarda el valor de un control sin reemplazar los demás campos. */
         function cambiarCampo(evento) {
@@ -6971,6 +7084,16 @@
                 <div className="zona-carga-texto">
                   <strong>{procesandoArchivo ? estadoProcesamiento : "Cargar libro desde archivo (PDF o TXT)"}</strong>
                   <p>Arrastra aquí tu documento o haz clic para seleccionarlo. Se extraerán automáticamente las páginas, el título y el texto listo para leer con índice interactivo.</p>
+                  <button
+                    type="button"
+                    className="boton boton-primario boton-explorar-pdf"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      inputArchivoRef.current?.click();
+                    }}
+                  >
+                    <Icono nombre="buscar" tamano={15} /> <span>Buscar PDF en mi equipo (Explorador de archivos)</span>
+                  </button>
                 </div>
                 {archivoCargadoInfo && (
                   <div className="estado-archivo-cargado" onClick={(e) => e.stopPropagation()}>
@@ -7213,9 +7336,9 @@
           alCambiarDashboard();
         }
 
-        function agregarLibro() {
+        function agregarLibro(explorarPdf = false) {
           cerrarMenuLateral();
-          alAgregarLibro();
+          alAgregarLibro(explorarPdf);
         }
 
         function abrirLibroRecordatorio(libroId) {
@@ -7279,9 +7402,19 @@
                   </button>
                 )}
                 {catalogoActivo && (
-                  <button className="boton-agregar-libro" type="button" onClick={agregarLibro}>
-                    <Icono nombre="brillo" tamano={15} /> <span>Agregar Libro</span>
-                  </button>
+                  <div className="grupo-botones-catalogo" style={{ display: "inline-flex", gap: "8px", alignItems: "center" }}>
+                    <button
+                      className="boton-cargar-pdf-header"
+                      type="button"
+                      title="Cargar y buscar PDF en tu equipo"
+                      onClick={() => agregarLibro(true)}
+                    >
+                      <Icono nombre="subir" tamano={15} /> <span>Cargar PDF</span>
+                    </button>
+                    <button className="boton-agregar-libro" type="button" onClick={() => agregarLibro(false)}>
+                      <Icono nombre="brillo" tamano={15} /> <span>Agregar Libro</span>
+                    </button>
+                  </div>
                 )}
                 <button
                   className={`boton-dashboard-header ${dashboardActivo ? "activo" : ""}`}
@@ -7743,6 +7876,10 @@
         const [modalIndiceAbierto, establecerModalIndiceAbierto] = React.useState(false);
         const [modalTraduccionAbierto, establecerModalTraduccionAbierto] = React.useState(false);
 
+        // Búsqueda manual dentro del PDF / libro
+        const [buscadorVisible, establecerBuscadorVisible] = React.useState(false);
+        const [terminoBusqueda, establecerTerminoBusqueda] = React.useState("");
+
         // Ajustes de lectura personalizados (temas y tamaño de letra)
         const [temaLectura, establecerTemaLectura] = React.useState("claro");
         const [tamanoFuente, establecerTamanoFuente] = React.useState("16px");
@@ -7794,6 +7931,23 @@
             establecerGuardado(false);
           }
         }
+
+        const paginasEncontradas = React.useMemo(() => {
+          const query = terminoBusqueda.trim().toLowerCase();
+          if (!query || query.length < 2) return [];
+          const resultados = [];
+          bloques.forEach((b, idx) => {
+            const texto = ((b.titulo || "") + " " + (b.texto || b || "")).toLowerCase();
+            if (texto.includes(query)) {
+              resultados.push({
+                indice: idx,
+                numero: idx + 1,
+                titulo: b.titulo || `Pág. ${idx + 1}`
+              });
+            }
+          });
+          return resultados;
+        }, [bloques, terminoBusqueda]);
 
         const bloqueActual = bloques[indicePagina] || { pagina: 1, titulo: "Página 1", texto: "El contenido de este libro todavía no está disponible." };
         const textoPaginaActual = bloqueActual.texto || bloqueActual;
@@ -7976,8 +8130,62 @@
                 >
                   <Icono nombre="traduccion" tamano={13} /> <span>🌐 Traducir</span>
                 </button>
+                <button
+                  className={`boton-herramienta ${buscadorVisible ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerBuscadorVisible((prev) => !prev)}
+                  title="Buscar texto, palabras clave o temas dentro de este PDF/libro"
+                >
+                  <Icono nombre="buscar" tamano={13} /> <span>🔍 Buscar en PDF</span>
+                </button>
               </div>
             </div>
+
+            {/* Barra de búsqueda interactiva en el libro/PDF */}
+            {buscadorVisible && (
+              <div className="barra-busqueda-lector">
+                <div className="barra-busqueda-lector-input">
+                  <Icono nombre="buscar" tamano={16} />
+                  <input
+                    type="search"
+                    autoFocus
+                    placeholder="Escribe una palabra o frase para buscar en las páginas del PDF..."
+                    value={terminoBusqueda}
+                    onChange={(e) => establecerTerminoBusqueda(e.target.value)}
+                  />
+                  {terminoBusqueda && (
+                    <button
+                      type="button"
+                      style={{ background: "none", border: "none", cursor: "pointer", fontSize: "14px", color: "var(--texto-suave)" }}
+                      onClick={() => establecerTerminoBusqueda("")}
+                      title="Limpiar búsqueda"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+                {terminoBusqueda.trim().length >= 2 && (
+                  <div className="chips-paginas-busqueda">
+                    <span style={{ fontWeight: 600, color: "var(--azul-oscuro)" }}>
+                      {paginasEncontradas.length > 0
+                        ? `${paginasEncontradas.length} coincidencia${paginasEncontradas.length > 1 ? "s" : ""} encontrada${paginasEncontradas.length > 1 ? "s" : ""}:`
+                        : "No se encontraron coincidencias."}
+                    </span>
+                    {paginasEncontradas.map((item) => (
+                      <button
+                        key={item.indice}
+                        type="button"
+                        className={`chip-pagina ${item.indice === indicePagina ? "actual" : ""}`}
+                        onClick={() => cambiarPagina(item.indice)}
+                        title={`Ir a ${item.titulo}`}
+                      >
+                        Pág. {item.numero}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
 
             {/* Controles de lectura en voz alta */}
             <div className="controles-voz" aria-label="Controles de lectura en voz alta">
@@ -10176,9 +10384,12 @@
           establecerDashboardActivo(false);
         }, []);
 
+        const [autoExplorarPdf, establecerAutoExplorarPdf] = React.useState(false);
+
         /** Abre el formulario vacío o precargado para crear o editar un libro. */
-        function abrirFormularioLibro(libro = null) {
+        function abrirFormularioLibro(libro = null, explorarPdf = false) {
           establecerLibroEditando(libro);
+          establecerAutoExplorarPdf(explorarPdf);
           establecerModalLibroAbierto(true);
         }
 
@@ -10186,6 +10397,7 @@
         function cerrarFormularioLibro() {
           establecerModalLibroAbierto(false);
           establecerLibroEditando(null);
+          establecerAutoExplorarPdf(false);
         }
 
         /** Persiste el libro y vuelve a consultar las tarjetas y conteos visibles. */
@@ -10271,7 +10483,7 @@
             dashboardActivo={dashboardActivo}
             alCambiarDashboard={() => establecerDashboardActivo((actual) => !actual)}
             catalogoActivo={!dashboardActivo && !libroSeleccionado}
-            alAgregarLibro={() => abrirFormularioLibro()}
+            alAgregarLibro={(explorarPdf) => abrirFormularioLibro(null, explorarPdf)}
             modoConexion={modoConexion}
             estadoConexionMcp={estadoConexionMcp}
             alCambiarModoConexion={cambiarModoConexion}
@@ -10304,6 +10516,16 @@
                     <p className="sobrelinea">Tu próxima lectura</p>
                     <h2 className="titulo-seccion">Encuentra tu historia</h2>
                     <p className="descripcion-seccion">Un lugar tranquilo para descubrir, aprender y volver a leer.</p>
+                  </div>
+                  <div className="acciones-catalogo-banner" style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                    <button
+                      className="boton boton-primario boton-subir-pdf-destacado"
+                      type="button"
+                      onClick={() => abrirFormularioLibro(null, true)}
+                      title="Cargar documento PDF o TXT desde tu equipo"
+                    >
+                      <Icono nombre="subir" tamano={17} /> <span>Cargar libro en PDF</span>
+                    </button>
                   </div>
                 </div>
 
@@ -10363,6 +10585,7 @@
                 alCerrar={cerrarFormularioLibro}
                 alGuardar={guardarLibro}
                 alCrearCategoria={manejarCategoriaCreada}
+                autoAbrirSelector={autoExplorarPdf}
               />
             </>
           </Layout>
