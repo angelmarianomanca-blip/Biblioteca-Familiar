@@ -10,7 +10,11 @@ import {
 } from "drizzle-orm";
 
 // Se importa únicamente la fábrica de conexión y las tablas del modelo.
-import { crearBaseDeDatos } from "./conexion.js";
+import {
+  crearBaseDeDatos,
+  type BaseDatosBiblioteca,
+  type ClienteBaseDeDatos,
+} from "./conexion.js";
 import {
   categorias,
   examenes,
@@ -612,10 +616,20 @@ function crearPreguntasDeExamen(
   });
 }
 
-// Crear la conexión también activa las restricciones de claves foráneas.
-const { baseDatos, cliente, modo } = await crearBaseDeDatos();
+/**
+ * Puebla la base de datos con categorías, libros, resúmenes, mapas, vocabulario,
+ * preguntas, usuarios y módulos iniciales.
+ */
+export async function sembrarDatos(conexionExistente?: {
+  baseDatos: BaseDatosBiblioteca;
+  cliente: ClienteBaseDeDatos;
+  modo: "turso" | "sqlite";
+}) {
+  const debeCerrar = !conexionExistente;
+  const conexion = conexionExistente ?? (await crearBaseDeDatos());
+  const { baseDatos, cliente, modo } = conexion;
 
-try {
+  try {
   // Los IDs de los resúmenes se calculan a partir del libro y el capítulo.
   const resumenesIniciales = capitulosIniciales.map((capitulo) => ({
     id: (capitulo.libroId - 1) * 3 + capitulo.capitulo,
@@ -800,7 +814,18 @@ try {
   // Se imprime la fila de conteos para que la ejecución de la siembra sea
   // revisable sin abrir manualmente el archivo SQLite.
   console.log("Siembra completada. Filas presentes:", conteos.rows[0]);
+  return conteos.rows[0];
 } finally {
-  // Se cierra el cliente aunque una inserción o la lectura de conteos falle.
-  await cliente.close();
+  // Se cierra el cliente solo si fue creado dentro de esta invocación
+  if (debeCerrar) {
+    await cliente.close();
+  }
 }
+}
+
+// Ejecución directa por CLI con `tsx src/db/sembrar.ts`
+const archivoEjecutado = process.argv[1]?.replace(/\\/g, "/");
+if (archivoEjecutado && (archivoEjecutado.endsWith("sembrar.ts") || archivoEjecutado.endsWith("sembrar.js"))) {
+  await sembrarDatos();
+}
+
