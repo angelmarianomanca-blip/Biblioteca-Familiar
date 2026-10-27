@@ -84,7 +84,12 @@ export async function crearBaseDeDatos(
       authToken: tokenTurso!,
     });
 
-    await clienteLibsql.execute("PRAGMA foreign_keys = ON");
+    try {
+      await clienteLibsql.execute("PRAGMA foreign_keys = ON");
+    } catch {
+      // En Turso / libSQL las claves foráneas están habilitadas a nivel de servidor;
+      // libSQL puede bloquear PRAGMA si la sesión es HTTP o tiene permisos restringidos.
+    }
     const baseDatos = crearInstanciaDrizzleLibsql(clienteLibsql, { schema: esquema });
 
     return {
