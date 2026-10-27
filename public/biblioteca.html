@@ -4352,6 +4352,424 @@
         transition-duration: 0.01ms !important;
       }
     }
+    /* Estilos de carga de archivos (PDF / TXT) */
+    .zona-carga-archivo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 22px 18px;
+      margin-bottom: 20px;
+      border: 2px dashed #d7d8e2;
+      border-radius: 14px;
+      background: #fbfbfd;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .zona-carga-archivo:hover,
+    .zona-carga-archivo.arrastrando {
+      border-color: var(--dorado);
+      background: #fffcf4;
+      box-shadow: 0 4px 15px rgba(226, 176, 74, 0.12);
+    }
+    .zona-carga-icono {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #f8edda;
+      color: #a4761f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .zona-carga-texto strong {
+      display: block;
+      font-size: 13px;
+      color: var(--azul-oscuro);
+      margin-bottom: 3px;
+    }
+    .zona-carga-texto p {
+      margin: 0;
+      font-size: 11px;
+      color: var(--texto-suave);
+      max-width: 480px;
+    }
+    .estado-archivo-cargado {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      background: #eaf7ee;
+      color: #1e7e34;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid #c3e6cb;
+    }
+
+    /* Estilos de creación de categorías inline */
+    .formulario-fila-encabezado {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .boton-enlace-accion {
+      background: none;
+      border: none;
+      color: #9e6d19;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: underline;
+    }
+    .boton-enlace-accion:hover {
+      color: var(--azul-oscuro);
+    }
+    .panel-nueva-categoria {
+      margin: 10px 0 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid #e2b04a;
+      background: #fdfaf3;
+      animation: aparecer-suave 0.2s ease;
+    }
+    .panel-nueva-categoria-titulo {
+      font-size: 11px;
+      font-weight: 700;
+      color: #8c6314;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .selector-icono-categoria {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .emojis-rapidos {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .boton-emoji {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 1px solid #e8e8ed;
+      border-radius: 6px;
+      background: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.1s ease, background 0.1s ease;
+    }
+    .boton-emoji:hover {
+      transform: scale(1.15);
+      background: #fff5e0;
+    }
+    .boton-emoji.seleccionado {
+      border-color: var(--dorado);
+      background: #fbf0d9;
+    }
+    .acciones-nueva-cat {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .boton-lateral-nueva-categoria {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px 12px;
+      border: 1px dashed #d5d6e2;
+      border-radius: 10px;
+      background: transparent;
+      color: #6d6e82;
+      font-size: 11px;
+      font-weight: 650;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .boton-lateral-nueva-categoria:hover {
+      border-color: var(--dorado);
+      background: #fffcf4;
+      color: var(--azul-oscuro);
+    }
+
+    /* Barra de herramientas del lector */
+    .barra-herramientas-lectura {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 8px 12px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      background: #f9f9fc;
+      border: 1px solid #ebebf2;
+    }
+    .grupo-herramientas {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .boton-herramienta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      height: 30px;
+      padding: 0 10px;
+      border: 1px solid #dcdce4;
+      border-radius: 7px;
+      background: #ffffff;
+      color: var(--azul-oscuro);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .boton-herramienta:hover {
+      border-color: var(--dorado);
+      background: #fffbf2;
+    }
+    .boton-herramienta.activo {
+      border-color: var(--dorado);
+      background: #f9e8bd;
+      color: #63430c;
+    }
+    .boton-indice-abrir {
+      color: #724e10;
+      background: #fef5e4;
+      border: 1px solid #edd5a3;
+      font-weight: 700;
+    }
+    .boton-indice-abrir:hover {
+      background: #fae5be;
+    }
+
+    /* Temas del panel de lectura */
+    .panel-lectura.tema-sepia {
+      background: #fbf0d9;
+      border-color: #ebd7b3;
+    }
+    .panel-lectura.tema-sepia .lectura-texto {
+      color: #433422;
+    }
+    .panel-lectura.tema-sepia .barra-herramientas-lectura {
+      background: #f3e5c7;
+      border-color: #e5d3ae;
+    }
+    .panel-lectura.tema-sepia .controles-voz {
+      background: #f6ebd2;
+      border-color: #e5d4b0;
+    }
+    .panel-lectura.tema-oscuro {
+      background: #171723;
+      border-color: #272738;
+      color: #dddded;
+    }
+    .panel-lectura.tema-oscuro .lectura-texto {
+      color: #d6d6e6;
+    }
+    .panel-lectura.tema-oscuro .lectura-meta-titulo {
+      color: #f0f0fa;
+    }
+    .panel-lectura.tema-oscuro .lectura-paginas {
+      background: #27273a;
+      color: #e2b04a;
+    }
+    .panel-lectura.tema-oscuro .barra-herramientas-lectura {
+      background: #202030;
+      border-color: #2e2e42;
+    }
+    .panel-lectura.tema-oscuro .boton-herramienta {
+      background: #242436;
+      border-color: #38384f;
+      color: #e0e0ea;
+    }
+    .panel-lectura.tema-oscuro .controles-voz {
+      background: #1d1d2b;
+      border-color: #313145;
+    }
+    .panel-lectura.tema-oscuro .boton-voz {
+      background: #242436;
+      border-color: #393950;
+      color: #d8d8e6;
+    }
+    .panel-lectura.tema-oscuro .control-pagina input {
+      background: #242436;
+      border-color: #393950;
+      color: #fff;
+    }
+
+    /* Modal Índice */
+    .modal-indice-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1050;
+      background: rgba(15, 15, 28, 0.65);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: aparecer-suave 0.15s ease;
+    }
+    .modal-indice-caja {
+      width: min(100%, 600px);
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+    }
+    .modal-indice-cabecera {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--borde);
+      background: #fcfcfd;
+    }
+    .modal-indice-cabecera h3 {
+      margin: 0;
+      font-size: 15px;
+      color: var(--azul-oscuro);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .modal-indice-filtro {
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--borde);
+      background: #ffffff;
+    }
+    .modal-indice-filtro input {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid var(--borde);
+      border-radius: 8px;
+      outline: none;
+      font-size: 12px;
+    }
+    .modal-indice-filtro input:focus {
+      border-color: var(--dorado);
+    }
+    .modal-indice-lista {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .modal-indice-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 9px;
+      border: 1px solid #ebebf2;
+      background: #fafafc;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.15s ease;
+    }
+    .modal-indice-item:hover {
+      background: #fbf5e9;
+      border-color: #eeddbb;
+      transform: translateX(3px);
+    }
+    .modal-indice-item.actual {
+      background: #fcf4e0;
+      border-color: var(--dorado);
+    }
+    .modal-indice-badge-pag {
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #e9eaf2;
+      color: #4b4c60;
+      font-size: 10px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .modal-indice-item.actual .modal-indice-badge-pag {
+      background: var(--dorado);
+      color: #fff;
+    }
+    .modal-indice-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .modal-indice-titulo {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--azul-oscuro);
+      margin-bottom: 2px;
+    }
+    .modal-indice-preview {
+      font-size: 11px;
+      color: var(--texto-suave);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Modal Traducción */
+    .modal-traduccion-caja {
+      width: min(100%, 640px);
+      max-height: 84vh;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      padding: 22px;
+    }
+    .caja-texto-original {
+      padding: 12px 14px;
+      background: #f6f7fa;
+      border-radius: 9px;
+      border: 1px solid #e5e7eb;
+      font-size: 12px;
+      line-height: 1.6;
+      max-height: 150px;
+      overflow-y: auto;
+      margin-bottom: 14px;
+      color: #374151;
+    }
+    .caja-texto-traducido {
+      padding: 12px 14px;
+      background: #fefce8;
+      border-radius: 9px;
+      border: 1px solid #fde047;
+      font-size: 12px;
+      line-height: 1.6;
+      max-height: 180px;
+      overflow-y: auto;
+      margin-bottom: 14px;
+      color: #422006;
+    }
+    .acciones-traduccion {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
   </style>
 </head>
 
@@ -4362,6 +4780,12 @@
   <script src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script>
+    if (window.pdfjsLib) {
+      window.pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.26.10/babel.min.js"></script>
 
   <script id="codigo-jsx" type="text/plain">
@@ -4653,6 +5077,11 @@
         return solicitarApi("/categorias");
       }
 
+      /** Crea una nueva categoría en la biblioteca. */
+      async function crearCategoria(datos) {
+        return solicitarApi("/categorias", { method: "POST", body: JSON.stringify(datos) });
+      }
+
       /** Obtiene los perfiles disponibles para el selector del encabezado. */
       async function obtenerUsuarios() {
         return solicitarApi("/usuarios");
@@ -4882,6 +5311,7 @@
       const serviciosApi = {
         obtenerUsuarios,
         obtenerCategorias,
+        crearCategoria,
         obtenerEstadisticas,
         obtenerLibroCompleto,
         crearLibro,
@@ -5856,6 +6286,14 @@
           guardar: <><path d="M5 4h12l3 3v13H4V4z"/><path d="M8 4v6h8V4M8 20v-6h8v6"/></>,
           brillo: <><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></>,
           aviso: <><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></>,
+          mas: <><path d="M12 5v14M5 12h14"/></>,
+          documento: <><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></>,
+          subir: <><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5M12 3v12"/></>,
+          traduccion: <><path d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></>,
+          sol: <><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></>,
+          luna: <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>,
+          fuente: <><path d="M4 7V4h16v3M9 20h6M12 4v16"/></>,
+          lista: <><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></>,
         };
         return (
           <svg
@@ -6310,12 +6748,26 @@
         );
       }
 
-      /** Modal para crear o editar los campos principales de un libro. */
-      function FormularioLibroModal({ abierto, libro, categorias, alCerrar, alGuardar }) {
+      /** Modal para crear o editar los campos principales de un libro con subida de PDF/TXT y creación de categorías. */
+      function FormularioLibroModal({ abierto, libro, categorias, alCerrar, alGuardar, alCrearCategoria }) {
         const notificar = React.useContext(ContextoNotificaciones);
         const [campos, establecerCampos] = React.useState({});
         const [guardando, establecerGuardado] = React.useState(false);
         const [error, establecerError] = React.useState("");
+
+        // Estado para carga de archivo PDF / TXT
+        const [procesandoArchivo, establecerProcesandoArchivo] = React.useState(false);
+        const [estadoProcesamiento, establecerEstadoProcesamiento] = React.useState("");
+        const [arrastrandoArchivo, establecerArrastrandoArchivo] = React.useState(false);
+        const [archivoCargadoInfo, establecerArchivoCargadoInfo] = React.useState(null);
+        const inputArchivoRef = React.useRef(null);
+
+        // Estado para creación rápida de categorías
+        const [creandoCategoria, establecerCreandoCategoria] = React.useState(false);
+        const [nuevaCatNombre, establecerNuevaCatNombre] = React.useState("");
+        const [nuevaCatIcono, establecerNuevaCatIcono] = React.useState("📚");
+        const [nuevaCatDescripcion, establecerNuevaCatDescripcion] = React.useState("");
+        const [guardandoCat, establecerGuardandoCat] = React.useState(false);
 
         // Cada apertura parte de los valores del libro elegido o de un formulario vacío.
         React.useEffect(() => {
@@ -6323,19 +6775,146 @@
           establecerCampos({
             titulo: libro?.titulo || "",
             autor: libro?.autor || "",
-            categoriaId: libro?.categoriaId ? String(libro.categoriaId) : "",
+            categoriaId: libro?.categoriaId ? String(libro.categoriaId) : (categorias[0]?.id ? String(categorias[0].id) : ""),
             totalPaginas: libro?.totalPaginas ?? "",
             portadaUrl: libro?.portadaUrl || "",
             descripcion: libro?.descripcion || "",
             contenidoCompleto: libro?.contenidoCompleto || "",
           });
           establecerError("");
-        }, [abierto, libro]);
+          establecerArchivoCargadoInfo(null);
+          establecerCreandoCategoria(false);
+        }, [abierto, libro, categorias]);
 
         /** Guarda el valor de un control sin reemplazar los demás campos. */
         function cambiarCampo(evento) {
           const { name, value } = evento.target;
           establecerCampos((actuales) => ({ ...actuales, [name]: value }));
+        }
+
+        /** Procesa archivos PDF o TXT arrastrados o seleccionados */
+        async function procesarArchivo(archivo) {
+          if (!archivo) return;
+          establecerProcesandoArchivo(true);
+          establecerEstadoProcesamiento(`Leyendo ${archivo.name}...`);
+          try {
+            const nombreBase = archivo.name.replace(/\.(pdf|txt)$/i, "").replace(/[_-]/g, " ");
+            const esPdf = archivo.type === "application/pdf" || archivo.name.toLowerCase().endsWith(".pdf");
+
+            if (esPdf) {
+              if (!window.pdfjsLib) {
+                throw new Error("El lector PDF se está inicializando. Por favor espera unos segundos y reintenta.");
+              }
+              const buffer = await archivo.arrayBuffer();
+              const loadingTask = window.pdfjsLib.getDocument({ data: buffer });
+              const pdf = await loadingTask.promise;
+              const totalPags = pdf.numPages;
+
+              establecerEstadoProcesamiento(`Extrayendo texto de ${totalPags} páginas...`);
+              const paginasTexto = [];
+              for (let p = 1; p <= totalPags; p++) {
+                if (p % 2 === 0 || p === totalPags) {
+                  establecerEstadoProcesamiento(`Procesando página ${p} de ${totalPags}...`);
+                }
+                const pagina = await pdf.getPage(p);
+                const contenidoTexto = await pagina.getTextContent();
+                const lineas = contenidoTexto.items.map((item) => item.str).join(" ").trim();
+                paginasTexto.push(`--- PÁGINA ${p}: Página ${p} ---\n${lineas || "(Página sin texto reconocible)"}`);
+              }
+
+              const textoCompleto = paginasTexto.join("\n\n");
+              const textoSinMarcadores = textoCompleto.replace(/--- PÁGINA \d+:.*?---/g, "").trim();
+              const primeraFrase = textoSinMarcadores.slice(0, 220);
+
+              establecerCampos((actual) => ({
+                ...actual,
+                titulo: actual.titulo || nombreBase,
+                autor: actual.autor || "Autor del documento",
+                totalPaginas: totalPags,
+                descripcion: actual.descripcion || (primeraFrase ? `${primeraFrase}...` : "Lectura importada desde documento PDF."),
+                contenidoCompleto: textoCompleto,
+              }));
+              establecerArchivoCargadoInfo(`✓ PDF procesado: "${archivo.name}" (${totalPags} páginas extraídas con índice listo)`);
+              notificar(`PDF procesado con éxito: ${totalPags} páginas extraídas.`);
+            } else {
+              // TXT
+              const texto = await archivo.text();
+              const palabras = texto.trim().split(/\s+/u).filter(Boolean);
+              let textoFormateado = texto;
+              let totalPags = Math.max(1, Math.ceil(palabras.length / 220));
+
+              if (!texto.includes("--- PÁGINA")) {
+                const bloques = [];
+                for (let i = 0; i < palabras.length; i += 220) {
+                  const num = Math.floor(i / 220) + 1;
+                  bloques.push(`--- PÁGINA ${num}: Página ${num} ---\n` + palabras.slice(i, i + 220).join(" "));
+                }
+                textoFormateado = bloques.join("\n\n");
+              }
+
+              establecerCampos((actual) => ({
+                ...actual,
+                titulo: actual.titulo || nombreBase,
+                autor: actual.autor || "Autor del documento",
+                totalPaginas: totalPags,
+                descripcion: actual.descripcion || (texto.slice(0, 200) + "..."),
+                contenidoCompleto: textoFormateado,
+              }));
+              establecerArchivoCargadoInfo(`✓ Archivo de texto: "${archivo.name}" (${totalPags} páginas preparadas)`);
+              notificar(`Archivo de texto cargado con éxito: ${totalPags} páginas preparadas.`);
+            }
+          } catch (fallo) {
+            const msj = fallo.message || "Error al procesar el archivo seleccionado.";
+            establecerError(msj);
+            notificar(msj, "error");
+          } finally {
+            establecerProcesandoArchivo(false);
+            establecerEstadoProcesamiento("");
+          }
+        }
+
+        /** Manejadores de arrastrar y soltar archivo */
+        function manejarDragOver(evento) {
+          evento.preventDefault();
+          establecerArrastrandoArchivo(true);
+        }
+        function manejarDragLeave(evento) {
+          evento.preventDefault();
+          establecerArrastrandoArchivo(false);
+        }
+        function manejarDrop(evento) {
+          evento.preventDefault();
+          establecerArrastrandoArchivo(false);
+          const archivo = evento.dataTransfer?.files?.[0];
+          if (archivo) procesarArchivo(archivo);
+        }
+
+        /** Guarda una nueva categoría desde el formulario del libro */
+        async function guardarNuevaCategoria() {
+          if (!nuevaCatNombre.trim()) {
+            establecerError("Ingresa el nombre de la categoría.");
+            return;
+          }
+          establecerGuardandoCat(true);
+          try {
+            const categoriaCreada = await serviciosApi.crearCategoria({
+              nombre: nuevaCatNombre.trim(),
+              descripcion: nuevaCatDescripcion.trim() || `Libros de ${nuevaCatNombre.trim()}`,
+              icono: nuevaCatIcono || "📚",
+            });
+            if (alCrearCategoria) {
+              alCrearCategoria(categoriaCreada);
+            }
+            establecerCampos((actual) => ({ ...actual, categoriaId: String(categoriaCreada.id) }));
+            establecerNuevaCatNombre("");
+            establecerNuevaCatDescripcion("");
+            establecerCreandoCategoria(false);
+            notificar(`Categoría "${categoriaCreada.nombre}" creada y seleccionada.`);
+          } catch (fallo) {
+            notificar(fallo.message || "No se pudo crear la categoría.", "error");
+          } finally {
+            establecerGuardandoCat(false);
+          }
         }
 
         /** Envía el formulario al servicio padre y conserva errores de la API. */
@@ -6363,35 +6942,163 @@
         return (
           <Modal
             abierto={abierto}
-            titulo={libro ? "Editar libro" : "Agregar libro"}
+            titulo={libro ? "Editar libro" : "Agregar libro a tu biblioteca"}
             alCerrar={alCerrar}
             clase="modal-libro-admin"
           >
             <form className="formulario-contenido" onSubmit={enviarFormulario}>
-              <div className="formulario-fila formulario-fila-doble">
-                <label className="campo-admin">Título<input autoFocus name="titulo" required maxLength="220" value={campos.titulo || ""} onChange={cambiarCampo} /></label>
-                <label className="campo-admin">Autor<input name="autor" required maxLength="180" value={campos.autor || ""} onChange={cambiarCampo} /></label>
+              {/* Zona de carga de archivos PDF / TXT */}
+              <div
+                className={`zona-carga-archivo ${arrastrandoArchivo ? "arrastrando" : ""}`}
+                onDragOver={manejarDragOver}
+                onDragLeave={manejarDragLeave}
+                onDrop={manejarDrop}
+                onClick={() => inputArchivoRef.current?.click()}
+              >
+                <input
+                  ref={inputArchivoRef}
+                  type="file"
+                  accept=".pdf,.txt,application/pdf,text/plain"
+                  style={{ display: "none" }}
+                  onChange={(e) => {
+                    const arc = e.target.files?.[0];
+                    if (arc) procesarArchivo(arc);
+                  }}
+                />
+                <div className="zona-carga-icono">
+                  <Icono nombre={procesandoArchivo ? "brillo" : "subir"} tamano={22} />
+                </div>
+                <div className="zona-carga-texto">
+                  <strong>{procesandoArchivo ? estadoProcesamiento : "Cargar libro desde archivo (PDF o TXT)"}</strong>
+                  <p>Arrastra aquí tu documento o haz clic para seleccionarlo. Se extraerán automáticamente las páginas, el título y el texto listo para leer con índice interactivo.</p>
+                </div>
+                {archivoCargadoInfo && (
+                  <div className="estado-archivo-cargado" onClick={(e) => e.stopPropagation()}>
+                    <Icono nombre="check" tamano={14} /> <span>{archivoCargadoInfo}</span>
+                  </div>
+                )}
               </div>
+
               <div className="formulario-fila formulario-fila-doble">
-                <label className="campo-admin">Categoría
+                <label className="campo-admin">Título<input autoFocus name="titulo" required maxLength="220" value={campos.titulo || ""} onChange={cambiarCampo} placeholder="Ej: Don Quijote de la Mancha" /></label>
+                <label className="campo-admin">Autor<input name="autor" required maxLength="180" value={campos.autor || ""} onChange={cambiarCampo} placeholder="Ej: Miguel de Cervantes" /></label>
+              </div>
+
+              <div className="formulario-fila formulario-fila-doble">
+                <div className="campo-admin">
+                  <div className="formulario-fila-encabezado">
+                    <label>Categoría</label>
+                    <button
+                      type="button"
+                      className="boton-enlace-accion"
+                      onClick={() => establecerCreandoCategoria(!creandoCategoria)}
+                    >
+                      {creandoCategoria ? "✕ Cancelar" : "+ Nueva categoría"}
+                    </button>
+                  </div>
                   <select name="categoriaId" required value={campos.categoriaId || ""} onChange={cambiarCampo}>
                     <option value="" disabled>Selecciona una categoría</option>
-                    {categorias.map((categoria) => <option key={categoria.id} value={categoria.id}>{categoria.nombre}</option>)}
+                    {categorias.map((categoria) => <option key={categoria.id} value={categoria.id}>{categoria.icono || "📚"} {categoria.nombre}</option>)}
                   </select>
-                </label>
+                </div>
                 <label className="campo-admin">Páginas<input name="totalPaginas" type="number" min="1" step="1" required value={campos.totalPaginas ?? ""} onChange={cambiarCampo} /></label>
               </div>
+
+              {/* Panel inline para crear nueva categoría si no existe */}
+              {creandoCategoria && (
+                <div className="panel-nueva-categoria" role="region" aria-label="Crear nueva categoría">
+                  <div className="panel-nueva-categoria-titulo">
+                    <span>➕ Crear nueva categoría</span>
+                    <button type="button" className="boton-enlace-accion" onClick={() => establecerCreandoCategoria(false)}>Cerrar</button>
+                  </div>
+                  <div className="formulario-fila formulario-fila-doble">
+                    <label className="campo-admin">Nombre de categoría
+                      <input
+                        value={nuevaCatNombre}
+                        placeholder="Ej: Novelas, Finanzas, Biología..."
+                        onChange={(e) => establecerNuevaCatNombre(e.target.value)}
+                        maxLength="50"
+                      />
+                    </label>
+                    <div className="campo-admin">
+                      <label>Ícono</label>
+                      <div className="selector-icono-categoria">
+                        <input
+                          value={nuevaCatIcono}
+                          placeholder="📚"
+                          style={{ width: "45px", textAlign: "center", fontSize: "16px" }}
+                          onChange={(e) => establecerNuevaCatIcono(e.target.value)}
+                          maxLength="4"
+                        />
+                        <div className="emojis-rapidos">
+                          {["📚", "🔬", "🏺", "💻", "🎨", "🚀", "🧠", "📖", "🌍", "💼", "🎭", "⚡"].map((emoji) => (
+                            <button
+                              key={emoji}
+                              type="button"
+                              className={`boton-emoji ${nuevaCatIcono === emoji ? "seleccionado" : ""}`}
+                              onClick={() => establecerNuevaCatIcono(emoji)}
+                            >
+                              {emoji}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="formulario-fila">
+                    <label className="campo-admin">Descripción de categoría
+                      <input
+                        value={nuevaCatDescripcion}
+                        placeholder="Breve reseña sobre esta colección de libros..."
+                        onChange={(e) => establecerNuevaCatDescripcion(e.target.value)}
+                        maxLength="120"
+                      />
+                    </label>
+                  </div>
+                  <div className="acciones-nueva-cat">
+                    <button
+                      type="button"
+                      className="boton boton-primario boton-mini"
+                      disabled={guardandoCat || !nuevaCatNombre.trim()}
+                      onClick={guardarNuevaCategoria}
+                    >
+                      {guardandoCat ? <><span className="indicador-carga-mini" /> Creando…</> : "Guardar categoría"}
+                    </button>
+                    <button
+                      type="button"
+                      className="boton boton-mini"
+                      onClick={() => establecerCreandoCategoria(false)}
+                    >
+                      Cancelar
+                    </button>
+                  </div>
+                </div>
+              )}
+
               <div className="formulario-fila formulario-fila-descripcion">
-                <label className="campo-admin">URL de portada<input name="portadaUrl" type="url" placeholder="https://…" value={campos.portadaUrl || ""} onChange={cambiarCampo} /></label>
-                <label className="campo-admin">Descripción<textarea name="descripcion" required rows="3" value={campos.descripcion || ""} onChange={cambiarCampo} /></label>
+                <label className="campo-admin">URL de portada<input name="portadaUrl" type="url" placeholder="https://… (o deja en blanco para usar la portada predeterminada)" value={campos.portadaUrl || ""} onChange={cambiarCampo} /></label>
+                <label className="campo-admin">Descripción o sinopsis<textarea name="descripcion" required rows="3" placeholder="Resumen o sinopsis del libro..." value={campos.descripcion || ""} onChange={cambiarCampo} /></label>
               </div>
+
               <div className="formulario-fila">
-                <label className="campo-admin">Contenido completo<textarea className="campo-contenido-completo" name="contenidoCompleto" required rows="8" value={campos.contenidoCompleto || ""} onChange={cambiarCampo} /></label>
+                <label className="campo-admin">
+                  Contenido de lectura (con marcadores --- PÁGINA X: Título ---)
+                  <textarea
+                    className="campo-contenido-completo"
+                    name="contenidoCompleto"
+                    required
+                    rows="8"
+                    placeholder="El texto de lectura puede cargarse subiendo un PDF arriba o pegándolo aquí. Puedes separar páginas usando:&#10;--- PÁGINA 1: Capítulo 1 ---&#10;Texto de la página 1...&#10;&#10;--- PÁGINA 2: Capítulo 2 ---&#10;Texto de la página 2..."
+                    value={campos.contenidoCompleto || ""}
+                    onChange={cambiarCampo}
+                  />
+                </label>
               </div>
+
               {error && <p className="mensaje-error-detalle" role="alert">{error}</p>}
               <div className="acciones-formulario-admin">
-                <button className="boton boton-primario" type="submit" disabled={guardando || !categorias.length}>
-                  <Icono nombre="guardar" tamano={14} /> {guardando ? <><span className="indicador-carga-mini" /> Guardando…</> : "Guardar"}
+                <button className="boton boton-primario" type="submit" disabled={guardando || procesandoArchivo || (!categorias.length && !campos.categoriaId)}>
+                  <Icono nombre="guardar" tamano={14} /> {guardando ? <><span className="indicador-carga-mini" /> Guardando…</> : "Guardar libro"}
                 </button>
                 <button className="boton boton-mini" type="button" disabled={guardando} onClick={alCerrar}>
                   <Icono nombre="cerrar" tamano={14} /> Cancelar
@@ -6403,11 +7110,41 @@
       }
 
       /** Layout común con encabezado, selector lateral, navegación para pulgar y área de contenido. */
-      function Layout({ categorias, categoriaSeleccionada, alSeleccionarCategoria, cantidadTotal, alAbrirLibroRecordatorio, dashboardActivo, alCambiarDashboard, catalogoActivo, alAgregarLibro, modoConexion, estadoConexionMcp, alCambiarModoConexion, usuarios, usuarioActivo, alCambiarPerfil, alIrACatalogo, children }) {
+      function Layout({ categorias, categoriaSeleccionada, alSeleccionarCategoria, cantidadTotal, alAbrirLibroRecordatorio, dashboardActivo, alCambiarDashboard, catalogoActivo, alAgregarLibro, modoConexion, estadoConexionMcp, alCambiarModoConexion, usuarios, usuarioActivo, alCambiarPerfil, alIrACatalogo, alCrearCategoria, children }) {
+        const notificar = React.useContext(ContextoNotificaciones);
         const [menuLateralAbierto, establecerMenuLateralAbierto] = React.useState(false);
         const [esMovil, establecerEsMovil] = React.useState(() => window.matchMedia?.("(max-width: 767px)").matches ?? false);
         const botonMenuRef = React.useRef(null);
         const toqueInicioRef = React.useRef(null);
+
+        // Estado del modal de nueva categoría en el menú lateral
+        const [modalNuevaCatAbierto, establecerModalNuevaCatAbierto] = React.useState(false);
+        const [catNombre, establecerCatNombre] = React.useState("");
+        const [catIcono, establecerCatIcono] = React.useState("📚");
+        const [catDesc, establecerCatDesc] = React.useState("");
+        const [guardandoCat, establecerGuardandoCat] = React.useState(false);
+
+        async function enviarNuevaCat(e) {
+          e.preventDefault();
+          if (!catNombre.trim()) return;
+          establecerGuardandoCat(true);
+          try {
+            const nueva = await serviciosApi.crearCategoria({
+              nombre: catNombre.trim(),
+              descripcion: catDesc.trim() || `Libros de ${catNombre.trim()}`,
+              icono: catIcono || "📚",
+            });
+            if (alCrearCategoria) alCrearCategoria(nueva);
+            establecerModalNuevaCatAbierto(false);
+            establecerCatNombre("");
+            establecerCatDesc("");
+            notificar(`Categoría "${nueva.nombre}" creada con éxito.`);
+          } catch (f) {
+            notificar(f.message || "Error al crear la categoría.", "error");
+          } finally {
+            establecerGuardandoCat(false);
+          }
+        }
 
         // El cajón solo se oculta del teclado y de lectores de pantalla en móvil.
         React.useEffect(() => {
@@ -6595,6 +7332,16 @@
                       <span className="categoria-conteo">{categoria.cantidadLibros}</span>
                     </button>
                   ))}
+                  <button
+                    className="boton-lateral-nueva-categoria"
+                    type="button"
+                    onClick={() => {
+                      cerrarMenuLateral();
+                      establecerModalNuevaCatAbierto(true);
+                    }}
+                  >
+                    <Icono nombre="mas" tamano={13} /> <span>Nueva categoría</span>
+                  </button>
                 </nav>
                 <div className="separador-lateral" />
                 <div className="nota-lateral">
@@ -6667,22 +7414,309 @@
                   <span>{usuarioActivo.nombre.split(/\s+/u)[0]}</span>
                 </button>
               )}
-            </nav>
+            {/* Modal para crear categorías desde la barra lateral */}
+            <Modal
+              abierto={modalNuevaCatAbierto}
+              titulo="Crear nueva categoría"
+              alCerrar={() => establecerModalNuevaCatAbierto(false)}
+            >
+              <form className="formulario-contenido" onSubmit={enviarNuevaCat}>
+                <div className="formulario-fila formulario-fila-doble">
+                  <label className="campo-admin">Nombre de categoría
+                    <input
+                      autoFocus
+                      required
+                      value={catNombre}
+                      placeholder="Ej: Filosofía, Novelas, Manga..."
+                      onChange={(e) => establecerCatNombre(e.target.value)}
+                    />
+                  </label>
+                  <div className="campo-admin">
+                    <label>Ícono</label>
+                    <div className="selector-icono-categoria">
+                      <input
+                        value={catIcono}
+                        placeholder="📚"
+                        style={{ width: "45px", textAlign: "center", fontSize: "16px" }}
+                        onChange={(e) => establecerCatIcono(e.target.value)}
+                        maxLength="4"
+                      />
+                      <div className="emojis-rapidos">
+                        {["📚", "🔬", "🏺", "💻", "🎨", "🚀", "🧠", "📖", "🌍", "💼", "🎭", "⚡"].map((emoji) => (
+                          <button
+                            key={emoji}
+                            type="button"
+                            className={`boton-emoji ${catIcono === emoji ? "seleccionado" : ""}`}
+                            onClick={() => establecerCatIcono(emoji)}
+                          >
+                            {emoji}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="formulario-fila">
+                  <label className="campo-admin">Descripción
+                    <textarea
+                      rows="2"
+                      value={catDesc}
+                      placeholder="Breve reseña sobre los libros de esta sección..."
+                      onChange={(e) => establecerCatDesc(e.target.value)}
+                    />
+                  </label>
+                </div>
+                <div className="acciones-formulario-admin">
+                  <button className="boton boton-primario" type="submit" disabled={guardandoCat || !catNombre.trim()}>
+                    <Icono nombre="guardar" tamano={14} /> {guardandoCat ? <><span className="indicador-carga-mini" /> Creando…</> : "Guardar categoría"}
+                  </button>
+                  <button className="boton boton-mini" type="button" disabled={guardandoCat} onClick={() => establecerModalNuevaCatAbierto(false)}>
+                    Cancelar
+                  </button>
+                </div>
+              </form>
+            </Modal>
           </div>
         );
       }
 
-      /** Divide el texto de lectura en bloques consecutivos de hasta 500 palabras. */
-      function dividirEnBloques(texto, palabrasPorBloque = 500) {
-        const palabras = String(texto || "").trim().split(/\s+/u).filter(Boolean);
+      /** Divide el texto de lectura reconociendo marcadores de página o en bloques cómodos de palabras. */
+      function dividirEnBloques(texto, palabrasPorBloque = 220) {
+        const contenido = String(texto || "").trim();
+        if (!contenido) {
+          return [{ pagina: 1, titulo: "Página 1", texto: "El contenido de este libro todavía no está disponible." }];
+        }
+
+        // 1. Detectar marcadores explícitos de página/capítulo:
+        // Ejemplos: "--- PÁGINA 1: Título ---", "=== PÁGINA 1 ===", "--- PÁGINA 1 ---"
+        const regexMarcador = /(?:^|\n)(?:---|\=\=\=)\s*(?:PÁGINA|PAGINA|Página|PAG|CAPÍTULO|CAPITULO|Capítulo)\s*(\d+)?(?::\s*([^\n\r]+?))?\s*(?:---|\=\=\=)/gi;
+        const coincidencias = [];
+        let match;
+
+        while ((match = regexMarcador.exec(contenido)) !== null) {
+          coincidencias.push({
+            indice: match.index,
+            longitud: match[0].length,
+            numero: match[1] || String(coincidencias.length + 1),
+            titulo: match[2] ? match[2].trim() : `Página ${match[1] || coincidencias.length + 1}`
+          });
+        }
+
+        if (coincidencias.length > 0) {
+          const partes = [];
+          // Si había texto introductorio antes del primer marcador
+          const textoPrevio = contenido.slice(0, coincidencias[0].indice).trim();
+          if (textoPrevio) {
+            partes.push({
+              pagina: 1,
+              titulo: "Introducción / Prólogo",
+              texto: textoPrevio,
+            });
+          }
+
+          for (let i = 0; i < coincidencias.length; i++) {
+            const actual = coincidencias[i];
+            const inicioTexto = actual.indice + actual.longitud;
+            const finTexto = i + 1 < coincidencias.length ? coincidencias[i + 1].indice : contenido.length;
+            const textoPagina = contenido.slice(inicioTexto, finTexto).trim();
+            partes.push({
+              pagina: partes.length + 1,
+              titulo: actual.titulo,
+              texto: textoPagina || "(Página sin texto)",
+            });
+          }
+          return partes;
+        }
+
+        // 2. Si no hay marcadores explícitos, dividir en bloques cómodos de lectura (~220 palabras)
+        const palabras = contenido.split(/\s+/u).filter(Boolean);
+        if (palabras.length <= palabrasPorBloque) {
+          return [{
+            pagina: 1,
+            titulo: "Página 1",
+            texto: contenido,
+          }];
+        }
+
         const bloques = [];
+        let num = 1;
         for (let indice = 0; indice < palabras.length; indice += palabrasPorBloque) {
-          bloques.push(palabras.slice(indice, indice + palabrasPorBloque).join(" "));
+          bloques.push({
+            pagina: num,
+            titulo: `Página ${num}`,
+            texto: palabras.slice(indice, indice + palabrasPorBloque).join(" "),
+          });
+          num++;
         }
         return bloques;
       }
 
-      /** Pestaña de lectura con paginación simulada y persistencia del avance. */
+      /** Modal con el índice interactivo de contenidos del libro para saltar directamente a cualquier página o capítulo. */
+      function ModalIndiceLectura({ abierto, alCerrar, bloques, indiceActual, alSeleccionarPagina, tituloLibro }) {
+        const [filtro, establecerFiltro] = React.useState("");
+
+        if (!abierto) return null;
+
+        const bloquesFiltrados = bloques.filter((b) => {
+          if (!filtro.trim()) return true;
+          const termino = filtro.toLowerCase();
+          return (
+            b.titulo?.toLowerCase().includes(termino) ||
+            b.texto?.toLowerCase().includes(termino) ||
+            String(b.pagina).includes(termino)
+          );
+        });
+
+        return (
+          <div className="modal-indice-overlay" onClick={alCerrar} role="dialog" aria-modal="true" aria-label="Índice de contenidos">
+            <div className="modal-indice-caja" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-indice-cabecera">
+                <h3><Icono nombre="lista" tamano={17} /> Índice de contenidos — {tituloLibro}</h3>
+                <button className="boton boton-mini" type="button" onClick={alCerrar} aria-label="Cerrar índice">
+                  <Icono nombre="cerrar" tamano={14} />
+                </button>
+              </div>
+              <div className="modal-indice-filtro">
+                <input
+                  autoFocus
+                  type="search"
+                  placeholder="Buscar capítulo, palabra o número de página..."
+                  value={filtro}
+                  onChange={(e) => establecerFiltro(e.target.value)}
+                />
+              </div>
+              <div className="modal-indice-lista">
+                {bloquesFiltrados.length === 0 ? (
+                  <p style={{ textAlign: "center", color: "#888", padding: "20px" }}>No se encontraron páginas con "{filtro}".</p>
+                ) : (
+                  bloquesFiltrados.map((bloque) => {
+                    const esActual = bloque.pagina - 1 === indiceActual;
+                    return (
+                      <button
+                        key={bloque.pagina}
+                        className={`modal-indice-item ${esActual ? "actual" : ""}`}
+                        type="button"
+                        onClick={() => {
+                          alSeleccionarPagina(bloque.pagina - 1);
+                          alCerrar();
+                        }}
+                      >
+                        <span className="modal-indice-badge-pag">Pág. {bloque.pagina}</span>
+                        <div className="modal-indice-info">
+                          <div className="modal-indice-titulo">
+                            {bloque.titulo} {esActual && <span style={{ color: "var(--dorado)", fontSize: "11px", fontWeight: "normal" }}>● Leyendo ahora</span>}
+                          </div>
+                          <div className="modal-indice-preview">
+                            {bloque.texto?.slice(0, 95)}...
+                          </div>
+                        </div>
+                        <Icono nombre="flecha" tamano={13} />
+                      </button>
+                    );
+                  })
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      /** Modal de asistencia en traducción al español */
+      function ModalTraduccionLectura({ abierto, alCerrar, textoPagina, reproductor, tituloLibro, numPagina }) {
+        const notificar = React.useContext(ContextoNotificaciones);
+        const [traduciendo, establecerTraduciendo] = React.useState(false);
+        const [textoTraducido, establecerTextoTraducido] = React.useState("");
+
+        if (!abierto) return null;
+
+        const enlaceGoogle = `https://translate.google.com/?sl=auto&tl=es&text=${encodeURIComponent(textoPagina?.slice(0, 1800) || "")}&op=translate`;
+
+        async function traducirEnPagina() {
+          if (!textoPagina) return;
+          establecerTraduciendo(true);
+          try {
+            const respuesta = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(textoPagina.slice(0, 480))}&langpair=autodetect|es`);
+            const datos = await respuesta.json();
+            if (datos.responseData?.translatedText) {
+              establecerTextoTraducido(datos.responseData.translatedText);
+              notificar("Traducción completada.");
+            } else {
+              throw new Error("No se pudo obtener la traducción automática.");
+            }
+          } catch (e) {
+            notificar("No se pudo traducir directamente. Usa el enlace de Google Traductor para ver la traducción completa.", "error");
+          } finally {
+            establecerTraduciendo(false);
+          }
+        }
+
+        return (
+          <div className="modal-indice-overlay" onClick={alCerrar} role="dialog" aria-modal="true" aria-label="Traducción en español">
+            <div className="modal-traduccion-caja" onClick={(e) => e.stopPropagation()}>
+              <div className="modal-indice-cabecera" style={{ padding: "0 0 16px 0", marginBottom: "16px" }}>
+                <h3><Icono nombre="traduccion" tamano={18} /> Traducción y lectura en español (Pág. {numPagina})</h3>
+                <button className="boton boton-mini" type="button" onClick={alCerrar}>
+                  <Icono nombre="cerrar" tamano={14} />
+                </button>
+              </div>
+
+              <label style={{ fontSize: "11px", fontWeight: "700", color: "#666", marginBottom: "6px", display: "block" }}>
+                Texto original de esta página:
+              </label>
+              <div className="caja-texto-original">
+                {textoPagina || "Sin contenido en esta página."}
+              </div>
+
+              {textoTraducido && (
+                <>
+                  <label style={{ fontSize: "11px", fontWeight: "700", color: "#856404", marginBottom: "6px", display: "block" }}>
+                    ✓ Traducción en español:
+                  </label>
+                  <div className="caja-texto-traducido">
+                    {textoTraducido}
+                  </div>
+                </>
+              )}
+
+              <div className="acciones-traduccion">
+                <a
+                  className="boton boton-primario"
+                  href={enlaceGoogle}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                >
+                  <Icono nombre="traduccion" tamano={14} /> Abrir traducción en Google Traductor
+                </a>
+                <button
+                  type="button"
+                  className="boton"
+                  onClick={traducirEnPagina}
+                  disabled={traduciendo}
+                >
+                  {traduciendo ? <><span className="indicador-carga-mini" /> Traduciendo…</> : "⚡ Traducir aquí"}
+                </button>
+                <button
+                  type="button"
+                  className="boton"
+                  onClick={() => {
+                    const textoALeer = textoTraducido || textoPagina;
+                    reproductor.alternar(textoALeer, `lectura-traducida-${numPagina}`, null, {
+                      titulo: `${tituloLibro} (Pág. ${numPagina})`,
+                      autor: "Traducción en español"
+                    });
+                  }}
+                  disabled={!reproductor.disponible}
+                >
+                  <Icono nombre="altavoz" tamano={14} /> Escuchar en voz alta
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
+      /** Pestaña de lectura con paginación real, índice interactivo, temas y persistencia del avance. */
       function PestañaLectura({ libro, reproductor, alCambiarProgreso }) {
         const notificar = React.useContext(ContextoNotificaciones);
         const bloques = React.useMemo(
@@ -6703,6 +7737,14 @@
         );
         const [guardando, establecerGuardado] = React.useState(false);
         const [error, establecerError] = React.useState("");
+
+        // Modales de Índice y Traducción
+        const [modalIndiceAbierto, establecerModalIndiceAbierto] = React.useState(false);
+        const [modalTraduccionAbierto, establecerModalTraduccionAbierto] = React.useState(false);
+
+        // Ajustes de lectura personalizados (temas y tamaño de letra)
+        const [temaLectura, establecerTemaLectura] = React.useState("claro");
+        const [tamanoFuente, establecerTamanoFuente] = React.useState("16px");
 
         React.useEffect(() => {
           const pag = Number(libro.progresoLectura?.paginaActual) || 0;
@@ -6752,9 +7794,13 @@
           }
         }
 
+        const bloqueActual = bloques[indicePagina] || { pagina: 1, titulo: "Página 1", texto: "El contenido de este libro todavía no está disponible." };
+        const textoPaginaActual = bloqueActual.texto || bloqueActual;
+
         /** Lee la página seleccionada y pide confirmación antes de avanzar. */
         function alternarVozPagina(indice) {
-          const texto = bloques[indice] || "El contenido de este libro todavía no está disponible.";
+          const b = bloques[indice] || { texto: "El contenido de este libro todavía no está disponible." };
+          const texto = b.texto || b;
           const identificador = `lectura-${libro.id}-${indice}`;
           reproductor.alternar(texto, identificador, () => {
             if (indice >= totalBloques - 1) return;
@@ -6765,7 +7811,7 @@
               cambiarPagina(indice + 1).then(() => alternarVozPagina(indice + 1));
             }
           }, {
-            titulo: `${libro.titulo} (Pág. ${indice + 1})`,
+            titulo: `${libro.titulo} (${b.titulo || `Pág. ${indice + 1}`})`,
             autor: libro.autor || "BiblioTeca Digital"
           });
         }
@@ -6833,17 +7879,106 @@
 
         return (
           <section
-            className="panel-lectura"
+            className={`panel-lectura tema-${temaLectura}`}
             aria-label="Contenido del libro. Usa deslizar con el dedo o las flechas para cambiar de página."
             tabIndex="0"
             onKeyDown={manejarTecladoLectura}
             onTouchStart={manejarInicioToqueLectura}
             onTouchEnd={manejarFinToqueLectura}
           >
+            {/* Cabecera de la página actual */}
             <div className="lectura-meta">
-              <h3 className="lectura-meta-titulo">Lectura del libro</h3>
-              <span className="lectura-paginas">Página {indicePagina + 1} de {totalBloques}</span>
+              <div>
+                <h3 className="lectura-meta-titulo">{bloqueActual.titulo || "Lectura del libro"}</h3>
+                <span className="lectura-paginas">Página {indicePagina + 1} de {totalBloques}</span>
+              </div>
+              <button
+                className="boton boton-mini boton-indice-abrir"
+                type="button"
+                onClick={() => establecerModalIndiceAbierto(true)}
+                title="Abrir índice interactivo de contenidos"
+              >
+                <Icono nombre="lista" tamano={14} /> <span>📖 Índice ({totalBloques} págs)</span>
+              </button>
             </div>
+
+            {/* Barra de herramientas: Temas, Tamaño de letra y Traductor */}
+            <div className="barra-herramientas-lectura">
+              <div className="grupo-herramientas">
+                <button
+                  className={`boton-herramienta ${temaLectura === "claro" ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerTemaLectura("claro")}
+                  title="Modo Día (Fondo blanco)"
+                >
+                  <Icono nombre="sol" tamano={13} /> Día
+                </button>
+                <button
+                  className={`boton-herramienta ${temaLectura === "sepia" ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerTemaLectura("sepia")}
+                  title="Modo Sepia (Lectura cálida y descansada)"
+                >
+                  📜 Sepia
+                </button>
+                <button
+                  className={`boton-herramienta ${temaLectura === "oscuro" ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerTemaLectura("oscuro")}
+                  title="Modo Noche (Fondo oscuro)"
+                >
+                  <Icono nombre="luna" tamano={13} /> Noche
+                </button>
+              </div>
+
+              <div className="grupo-herramientas">
+                <button
+                  className={`boton-herramienta ${tamanoFuente === "14px" ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerTamanoFuente("14px")}
+                  title="Letra compacta"
+                >
+                  A-
+                </button>
+                <button
+                  className={`boton-herramienta ${tamanoFuente === "16px" ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerTamanoFuente("16px")}
+                  title="Letra normal"
+                >
+                  A
+                </button>
+                <button
+                  className={`boton-herramienta ${tamanoFuente === "19px" ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerTamanoFuente("19px")}
+                  title="Letra grande"
+                >
+                  A+
+                </button>
+                <button
+                  className={`boton-herramienta ${tamanoFuente === "22px" ? "activo" : ""}`}
+                  type="button"
+                  onClick={() => establecerTamanoFuente("22px")}
+                  title="Letra extra grande"
+                >
+                  A++
+                </button>
+              </div>
+
+              <div className="grupo-herramientas">
+                <button
+                  className="boton-herramienta"
+                  type="button"
+                  onClick={() => establecerModalTraduccionAbierto(true)}
+                  title="Traducir texto o consultar traducción al español"
+                >
+                  <Icono nombre="traduccion" tamano={13} /> <span>🌐 Traducir</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Controles de lectura en voz alta */}
             <div className="controles-voz" aria-label="Controles de lectura en voz alta">
               <div className="voz-botones">
                 <button
@@ -6907,15 +8042,19 @@
             ) : reproductor.voces.length === 0 ? (
               <p className="estado-voz" role="status">No se encontraron voces en español; se usará la voz predeterminada del navegador.</p>
             ) : null}
-            <article className="lectura-texto">
+
+            {/* Texto de la página actual con tamaño configurable */}
+            <article className="lectura-texto" style={{ fontSize: tamanoFuente, lineHeight: "1.9" }}>
               <TextoConResaltado
-                texto={bloques[indicePagina] || "El contenido de este libro todavía no está disponible."}
+                texto={textoPaginaActual}
                 rango={rangoPagina}
               />
             </article>
+
             <div className="lectura-progreso">
               <IndicadorProgreso porcentaje={progreso.porcentaje} />
             </div>
+
             <div className="lectura-controles">
               <button
                 className="boton boton-control"
@@ -6951,6 +8090,24 @@
             </div>
             {guardando && <p className="mensaje-error-detalle" role="status"><span className="indicador-carga-mini" /> Guardando progreso…</p>}
             {error && <p className="mensaje-error-detalle" role="alert">{error}</p>}
+
+            {/* Modales integrados del lector */}
+            <ModalIndiceLectura
+              abierto={modalIndiceAbierto}
+              alCerrar={() => establecerModalIndiceAbierto(false)}
+              bloques={bloques}
+              indiceActual={indicePagina}
+              alSeleccionarPagina={cambiarPagina}
+              tituloLibro={libro.titulo}
+            />
+            <ModalTraduccionLectura
+              abierto={modalTraduccionAbierto}
+              alCerrar={() => establecerModalTraduccionAbierto(false)}
+              textoPagina={textoPaginaActual}
+              reproductor={reproductor}
+              tituloLibro={libro.titulo}
+              numPagina={indicePagina + 1}
+            />
           </section>
         );
       }
@@ -9094,10 +10251,18 @@
           }
         }, [categorias]);
 
+        function manejarCategoriaCreada(nuevaCategoria) {
+          establecerCategorias((prev) => {
+            if (prev.some((c) => c.id === nuevaCategoria.id)) return prev;
+            return [...prev, { ...nuevaCategoria, cantidadLibros: 0 }];
+          });
+        }
+
         return (
           <ContextoNotificaciones.Provider value={notificar}>
           <Layout
             categorias={categorias}
+            alCrearCategoria={manejarCategoriaCreada}
             categoriaSeleccionada={categoriaSeleccionada}
             alSeleccionarCategoria={seleccionarCategoriaEnCatalogo}
             cantidadTotal={categorias.reduce((total, categoria) => total + Number(categoria.cantidadLibros || 0), 0)}
@@ -9196,6 +10361,7 @@
                 categorias={categorias}
                 alCerrar={cerrarFormularioLibro}
                 alGuardar={guardarLibro}
+                alCrearCategoria={manejarCategoriaCreada}
               />
             </>
           </Layout>

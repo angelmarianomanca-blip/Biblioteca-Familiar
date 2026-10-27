@@ -52,7 +52,7 @@ type CapituloInicial = {
 type AspectoPregunta = keyof DatosDePregunta;
 
 // Tres categorías de ejemplo; los IDs estables hacen repetible la carga.
-const categoriasIniciales = [
+export const categoriasIniciales = [
   {
     id: 1,
     nombre: "Ficción",
@@ -73,8 +73,8 @@ const categoriasIniciales = [
   },
 ];
 
-// Cada categoría tiene dos libros; los textos largos se guardan como TEXT.
-const librosIniciales = [
+// Cada categoría tiene dos libros; los textos largos se estructuran en capítulos navegables.
+export const librosIniciales = [
   {
     id: 1,
     categoriaId: 1,
@@ -84,8 +84,21 @@ const librosIniciales = [
     descripcion:
       "Una restauradora vuelve a la costa y descubre por qué el faro dejó de guiar a los barcos.",
     contenidoCompleto:
-      "Inés Vidal regresa a Puerto Bruma para ordenar la bitácora de su abuelo, antiguo farero. La luz del faro se apaga justo cuando una tormenta cubre la bahía, y una brújula de latón parece señalar una ruta que nadie recuerda. Al seguirla, Inés encuentra una cueva, un espejo olvidado y las pruebas de una reparación mal hecha. Con ayuda de quienes viven junto al puerto, reconstruye la señal y entiende que cuidar una memoria también significa compartirla. La historia concluye con el faro encendido y con una nueva bitácora escrita entre varias manos.",
-    totalPaginas: 240,
+      `--- PÁGINA 1: Prólogo - El silencio de la bahía ---
+Inés Vidal regresa a Puerto Bruma con una maleta de cuero y una misión que nadie le ha pedido explícitamente: ordenar la antigua bitácora de su abuelo, el último farero del litoral sur. El viento salino azota los acantilados mientras el transbordador amarra en el muelle de madera desgastada. Los habitantes comentan que el faro no ha vuelto a encender su haz giratorio desde aquella noche de tormenta en que las mareas parecieron detenerse. Entre las pertenencias olvidadas en la caseta de guardia, una vieja llave de bronce cuelga junto a una nota descolorida.
+
+--- PÁGINA 2: Capítulo 1 - La bitácora cerrada ---
+Inés Vidal vuelve a Puerto Bruma para ordenar los papeles de su abuelo. Una tormenta apaga el faro y, dentro de una bitácora con pastas de lona encerada, ella descubre una brújula de latón que no apunta al norte magnético, sino hacia una ruta trazada a mano alzada en el reverso de una carta náutica de 1942. El mecanismo de la brújula vibra débilmente cuando se acerca a la pared norte del faro, donde una grieta disimula un pequeño compartimento sellado con brea.
+
+--- PÁGINA 3: Capítulo 2 - La cueva del vidrio ---
+Siguiendo las coordenadas de la brújula y las marcas en las rocas batidas por el oleaje, Inés desciende hacia la Cueva Azul con la bajamar. Allí encuentra un espejo cóncavo de bronce y cristal de roca cubierto de salitre y algas secas. Los pescadores del puerto desconfían de su plan y temen aventurarse cerca de los arrecifes, pero una prueba realizada durante el crepúsculo demuestra que el espejo, adecuadamente alineado con la curvatura del acantilado, es capaz de concentrar y orientar la luz aún en medio de la neblina más espesa.
+
+--- PÁGINA 4: Capítulo 3 - La señal compartida ---
+Con el viento en calma y la marea en su punto medio, Inés y los vecinos de Puerto Bruma colaboran para transportar la lente restaurada hasta la torre del faro. Ajustan los contrapesos del reloj mecánico y encienden la lámpara central. El faro vuelve a iluminar la bahía con un compás firme de destellos blancos y dorados. En lugar de guardar el secreto en soledad, Inés abre una nueva bitácora comunitaria en la biblioteca del pueblo, donde cada marino y habitante escribe sus propias observaciones del mar.
+
+--- PÁGINA 5: Epílogo - Memoria en el horizonte ---
+Cuidar la memoria no consiste en conservar reliquias intactas en una vitrina cerrada, sino en mantener encendidas las señales que permiten a otros encontrar el camino a casa. El faro de Puerto Bruma no solo guía a las embarcaciones nocturnas; recuerda a toda la comunidad que las historias más valiosas son aquellas que se escriben y se comparten entre muchas manos.`,
+    totalPaginas: 5,
   },
   {
     id: 2,
@@ -96,8 +109,21 @@ const librosIniciales = [
     descripcion:
       "Un joven cartógrafo busca el antiguo cauce que puede devolver agua a su barrio.",
     contenidoCompleto:
-      "Julián Soria encuentra un mapa de azulejos bajo el patio de la casa de su tía, en San Telmo del Valle. Las fuentes del barrio se han secado y los vecinos discuten sobre dónde terminaba la acequia. Julián reúne testimonios, sigue marcas ocultas en las calles y aprende a leer el terreno sin borrar las historias de quienes lo habitan. Cuando una lluvia fuerte amenaza con inundar la plaza, su mapa permite abrir un canal seguro. El agua vuelve a los naranjos y el barrio decide conservar el plano en un mural común.",
-    totalPaginas: 180,
+      `--- PÁGINA 1: Prólogo - Tierra seca en San Telmo ---
+Durante tres veranos consecutivos, las lluvias han esquivado los tejados de San Telmo del Valle. Las históricas fuentes de piedra de la plaza principal apenas dejan caer unas gotas marrones al amanecer, y los viejos naranjos sembrados en los patios coloniales comienzan a perder sus hojas aromáticas. Julián Soria, que pasa sus días restaurando planos topográficos en el archivo municipal, se niega a aceptar que el barrio deba resignarse a la sequía.
+
+--- PÁGINA 2: Capítulo 1 - El patio de azulejos ---
+Julián Soria encuentra un plano trazado sobre azulejos de mayólica bajo las baldosas levantadas del patio de los Naranjos, en la antigua casa de su tía. El mapa revela un cauce subterráneo construido por los primeros alarifes del valle, justo cuando las fuentes públicas del barrio empiezan a secarse por completo. Las inscripciones en los bordes de los azulejos señalan compuertas ocultas bajo nombres de árboles que ya nadie recuerda.
+
+--- PÁGINA 3: Capítulo 2 - La acequia enterrada ---
+Armado con una cinta métrica de lino y un cuaderno de bocetos, Julián recorre la calle empinada de los Tilos escuchando las memorias contradictorias de los vecinos más ancianos. Una marca de cal viva grabada bajo los pilares del puente de piedra le permite identificar el tramo exacto donde el cauce fue tapiado hace sesenta años sin necesidad de demoler las viviendas. Con precisión geométrica, calcula el punto de desahogo ideal.
+
+--- PÁGINA 4: Capítulo 3 - Agua para la plaza ---
+Ante una asamblea de vecinos reunida en la plaza del Molino, Julián despliega una réplica del plano y propone abrir un canal lateral de drenaje aprovechando la pendiente natural de la colina. Cuando una lluvia torrencial desciende desde la sierra amenazando con desbordar los albañales, la cuadrilla abre la compuerta restaurada. El torrente limpio circula por el antiguo cauce y el agua fresca vuelve a regar las raíces de los naranjos.
+
+--- PÁGINA 5: Epílogo - El mural de la memoria ---
+Para que ningún trazado vuelva a perderse en el olvido, los habitantes de San Telmo deciden pintar el mapa completo en el muro este de la escuela comunitaria. Julián comprende que la verdadera cartografía no se limita a medir distancias entre puntos fijos: consiste en trazar puentes entre el pasado de un pueblo y su porvenir colectivo.`,
+    totalPaginas: 5,
   },
   {
     id: 3,
@@ -108,8 +134,21 @@ const librosIniciales = [
     descripcion:
       "Una botánica investiga cómo mantener un invernadero experimental en una estación lunar.",
     contenidoCompleto:
-      "Vera Montes llega a la estación Selene para estudiar un jardín construido con suelo lunar simulado. Sus plantas pierden humedad durante la noche artificial y el equipo teme que el experimento deba detenerse. Vera compara registros, revisa el polvo de regolito y conversa con la técnica que mantiene los paneles de luz. La solución no está en añadir más agua, sino en recuperar calor y aprovechar las sombras con cuidado. El jardín resiste el siguiente ciclo y se convierte en un pequeño archivo vivo de la misión.",
-    totalPaginas: 210,
+      `--- PÁGINA 1: Prólogo - El domo de polvo y cristal ---
+A cuatrocientos mil kilómetros de la biosfera terrestre, el domo bioclimático de la estación Selene resplandece como una perla suspendida en el Mar de la Tranquilidad. En su interior, filas de brotes de leguminosas y hortalizas crecen bajo una atmósfera presurizada pero desafiada por la radiación cósmica y una gravedad seis veces menor. Vera Montes sabe que la supervivencia a largo plazo de la base depende del éxito de este pequeño ecosistema sellado.
+
+--- PÁGINA 2: Capítulo 1 - Semillas en Selene ---
+Vera Montes inicia el ciclo de observación tras detectar que los brotes experimentales pierden hasta un cuarenta por ciento de su humedad celular durante la noche lunar simulada. El equipo de ingenieros de soporte vital insiste en que las lámparas de sodio deben cambiarse por emisores ultravioleta, pero las primeras mediciones espectrométricas de Vera revelan que el problema radica en la estructura microscópica del regolito lunar utilizado como lecho.
+
+--- PÁGINA 3: Capítulo 2 - La sombra del domo ---
+Junto a la técnica de sistemas térmicos, Vera analiza el comportamiento del calor en los límites del domo cuando el sol se oculta tras los montes Apeninos de la Luna. Descubren que el choque térmico cristaliza el vapor de agua antes de que las hojas logren absorberlo. La solución no consiste en bombear más agua líquida a las raíces, sino en redistribuir el calor residual de los reactores mediante una red de conductos de cerámica porosa colocados en las sombras.
+
+--- PÁGINA 4: Capítulo 3 - La primera cosecha ---
+Tras quince rotaciones de ajuste cuidadoso, los sensores confirman una transpiración vegetal equilibrada. Los primeros tomates lunares maduran con un tono escarlata brillante, y las hojas de espinaca retienen su turgencia natural incluso en los periodos de penumbra más prolongados. El centro de control en la Tierra autoriza la ampliación del módulo hortícola y la tripulación degusta la primera ensalada fresca producida fuera del planeta de origen.
+
+--- PÁGINA 5: Epílogo - Echar raíces en el cosmos ---
+El pequeño jardín de Selene se convierte en un símbolo de esperanza científica. Demuestra que la vida no es un accidente frágil confinado a un solo mundo, sino una fuerza tenaz capaz de florecer allá donde la curiosidad humana, la paciencia y el conocimiento decidan tenderle una mano.`,
+    totalPaginas: 5,
   },
   {
     id: 4,
@@ -120,8 +159,21 @@ const librosIniciales = [
     descripcion:
       "Un equipo de radioastronomía separa una señal celeste de las interferencias terrestres.",
     contenidoCompleto:
-      "Nicolás Arce trabaja en el observatorio de Piedra Clara cuando una antena registra pulsos regulares desde una región lejana. Una tormenta altera los equipos y el equipo sospecha que el patrón puede ser una interferencia de la ciudad. Nicolás compara las mediciones con un cuaderno de observación y orienta la antena hacia una zona más silenciosa. La señal permanece, pero su ritmo cambia con precisión. El equipo publica los datos con cautela y deja claro qué han observado y qué todavía no saben.",
-    totalPaginas: 196,
+      `--- PÁGINA 1: Prólogo - El valle de los ecos cósmicos ---
+En la meseta solitaria de Piedra Clara, siete antenas parabólicas de treinta metros de diámetro apuntan en silencio hacia el hemisferio sur celeste. La noche es tan oscura que la Vía Láctea parece proyectar sombras sobre la roca rojiza. Nicolás Arce ajusta los amplificadores criogénicos del receptor principal mientras el monitor de fósforo verde dibuja una línea de ruido de fondo casi plana, esperando la mínima perturbación en la banda de veintiún centímetros.
+
+--- PÁGINA 2: Capítulo 1 - El pulso lejano ---
+A las 03:14 horas, la tercera antena del complejo registra una serie de pulsos electromagnéticos de periodicidad rigurosa: 1.337 segundos entre cada pico, con un desplazamiento Doppler característico de una fuente situada más allá del sistema solar. La emoción invade la sala de control, pero una súbita tormenta eléctrica sobre la sierra cercana introduce fluctuaciones en la red eléctrica que amenazan con descalibrar los osciladores locales.
+
+--- PÁGINA 3: Capítulo 2 - El filtro de la tormenta ---
+Nicolás se niega a apresurar conclusiones sensacionalistas. Revisa minuciosamente su cuaderno de bitácora y compara las frecuencias observadas con los armónicos emitidos por los transformadores de alta tensión de la ciudad vecina. Con la ayuda de un software de correlación cruzada diseñado por su equipo, filtra las microinterferencias industriales y orienta el conjunto de radiotelescopios hacia una coordenada estelar muda y libre de rebotes terrestres.
+
+--- PÁGINA 4: Capítulo 3 - El registro compartido ---
+La señal persiste con una nitidez matemática asombrosa. No se trata de una transmisión artificial ni de un error de software: han captado el nacimiento de un púlsar de milisegundos en el corazón de una nebulosa lejana que acaba de colapsar. En lugar de guardar el descubrimiento con celo competitivo, el observatorio publica los datos en código abierto para que astrónomos de todo el mundo puedan triangular el fenómeno simultáneamente.
+
+--- PÁGINA 5: Epílogo - La humildad del científico ---
+La verdadera ciencia no busca respuestas cómodas ni triunfos inmediatos; abraza el rigor de saber distinguir la voz auténtica del universo del ruido que nosotros mismos generamos en la Tierra. En Piedra Clara, las antenas siguen escuchando, recordando que allá afuera cada estrella tiene una frecuencia que espera ser comprendida con paciencia y verdad.`,
+    totalPaginas: 5,
   },
   {
     id: 5,
@@ -132,8 +184,21 @@ const librosIniciales = [
     descripcion:
       "Una aprendiz de imprenta encuentra cartas que revelan decisiones cotidianas en tiempos de cambio.",
     contenidoCompleto:
-      "Emilia Sanz aprende el oficio de impresora en el puerto de Buenos Aires durante 1810. Entre tipos de plomo y papeles manchados, encuentra cartas de una comerciante llamada Clara, que describe las dificultades de abastecer los barrios. Emilia intenta protegerlas cuando el taller recibe órdenes contradictorias, pero comprende que conservarlas exige registrar también quién las escribió y cómo llegaron hasta allí. Las cartas muestran que los grandes cambios se viven en tareas pequeñas: repartir harina, abrir una imprenta y decidir qué voces merecen circular. Años después, Emilia reúne las copias en un cuaderno que puede consultar todo el barrio.",
-    totalPaginas: 140,
+      `--- PÁGINA 1: Prólogo - El olor a tinta y salitre ---
+En el otoño de 1810, el puerto de Buenos Aires es un hervidero de carretas, pregones callejeros y rumores clandestinos. En la imprenta de los Niños Expósitos, las prensas de roble y hierro no descansan. Emilia Sanz, una joven de dieciocho años con los dedos permanentemente manchados de tinta negra de humo, limpia tipos móviles de plomo mientras en las esquinas de la Plaza Mayor se discuten proclamas que cambiarán para siempre el destino del Virreinato.
+
+--- PÁGINA 2: Capítulo 1 - Los plomos de mayo ---
+Entre resmas de papel de hilo y fajos de bandos oficiales del Virrey Cisneros, Emilia descubre una bolsa de arpillera oculta en el doble fondo de un cajón de tipos de letra cursiva. En su interior descansan decenas de cartas manuscritas firmadas por Clara, una comerciante del barrio del Retiro. Las misivas no hablan de batallas pomposas ni de generales, sino de la angustia de conseguir harina para las panaderías, del precio del cuero y de los debates que las familias sostienen a la luz de las velas.
+
+--- PÁGINA 3: Capítulo 2 - Las cartas en el muelle ---
+Cuando un oficial del Cabildo llega a la imprenta con una orden perentoria para requisar cualquier escrito no visado por la censura, Emilia arriesga su puesto y esconde las cartas bajo su manto de paño. Con el corazón latiéndole con fuerza, las traslada hasta el muelle de las carretas, donde una red solidaria de arrieros y lavanderas las protege en toneles secos. Comprende que salvar esos testimonios es defender la memoria de la gente común frente al olvido histórico.
+
+--- PÁGINA 4: Capítulo 3 - La voz de los vecinos ---
+Consumados los acontecimientos del veinticinco de mayo, el nuevo gobierno municipal necesita proclamar sus decretos al pueblo llano. Emilia propone al maestro impresor un formato de pliego accesible en lenguaje claro y cercano, integrando en pequeños márgenes las inquietudes que Clara relataba en sus cartas. La imprenta no solo publica edictos políticos: se convierte en un espejo donde la ciudadanía se reconoce protagonista de su propia emancipación.
+
+--- PÁGINA 5: Epílogo - Las palabras que perduran ---
+Muchos años más tarde, las cartas de Clara y los pliegos de Emilia descansan en el archivo histórico de la ciudad. Recuerdan a las nuevas generaciones que la libertad de los pueblos no se fragua únicamente en los salones de gobierno, sino en las manos trabajadoras de quienes se atreven a imprimir, conversar y preservar la verdad sin mordazas.`,
+    totalPaginas: 5,
   },
   {
     id: 6,
@@ -144,8 +209,21 @@ const librosIniciales = [
     descripcion:
       "Un aprendiz de cartógrafo intenta preservar los nombres locales ante un nuevo trazado ferroviario.",
     contenidoCompleto:
-      "Mateo Ríos trabaja en un taller de mapas de Córdoba en 1897, cuando el nuevo ferrocarril modifica los caminos de la región. El plano oficial omite senderos y nombres que los habitantes usan desde hace generaciones. Mateo recorre los alrededores con una libreta de campo, compara distancias y escucha a una arriera que conoce cada cruce. Al discutir con su maestro, propone imprimir dos capas de información: la ruta nueva y los caminos comunitarios. El último mapa del taller deja espacio para ambos registros y enseña que medir un territorio también implica decidir qué recordar.",
-    totalPaginas: 172,
+      `--- PÁGINA 1: Prólogo - El compás y las vías de acero ---
+Hacia finales del siglo diecinueve, los silbatos de las locomotoras a vapor comienzan a quebrar la serenidad milenaria de las serranías de Córdoba. Las cuadrillas de ingenieros trazan líneas rectas sobre el papel sin importarles las cañadas ancestrales ni las huellas de pastoreo. En el gabinete de cartografía de don Anselmo, el joven aprendiz Mateo Ríos sostiene el tiralíneas con reverencia, temiendo que la modernidad borre de un plumazo siglos de geografía humana.
+
+--- PÁGINA 2: Capítulo 1 - La libreta de campo ---
+Mateo Ríos recibe la instrucción de confeccionar el plano oficial para la inauguración del ramal ferroviario. Sin embargo, al cotejar las minutas de los agrimensores ingleses con la realidad del terreno, nota con indignación que los mapas oficiales omiten deliberadamente los vados, las aguadas comunitarias y los nombres que las familias criollas han utilizado durante generaciones. Decide salir al campo con su libreta de tela y un altímetro aneroide.
+
+--- PÁGINA 3: Capítulo 2 - El cruce de los arrieros ---
+En el paraje de Las Vertientes, Mateo se entrevista con doña Lorenza, una arriera veterana que conduce recuas de mulas a través de las abras de la sierra. Con paciencia infinita, Lorenza le enseña a leer los accidentes geográficos en función de las fuentes de agua, las corrientes de aire y las leyendas de cada risco. Mateo anota cada topónimo originario y comprueba que trazar una vía férrea sin respetar los pasos de arriería aislará a tres aldeas de la comarca.
+
+--- PÁGINA 4: Capítulo 3 - Las dos capas del mapa ---
+Al regresar al taller, Mateo enfrenta la oposición inicial de don Anselmo, quien teme perder el contrato gubernamental. No obstante, el aprendiz diseña una solución cartográfica magistral: una litografía a dos tintas superpuestas, donde la línea férrea en carmín convive armónicamente con la red de senderos vernáculos en sepia y azul. El ministerio no solo aprueba la propuesta, sino que adopta el formato bicolor como norma para futuros relevamientos territoriales.
+
+--- PÁGINA 5: Epílogo - El territorio habitado ---
+Medir un territorio no significa imponer una cuadrícula fría sobre la tierra viva; implica escuchar las pisadas de quienes la caminaron antes. El último mapa del taller de don Anselmo demostró que el progreso material y el respeto por las raíces culturales no son caminos opuestos, sino senderos complementarios que deben figurar con igual dignidad en la cartografía de una nación.`,
+    totalPaginas: 5,
   },
 ];
 

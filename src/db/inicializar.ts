@@ -3,7 +3,7 @@ import {
   type BaseDatosBiblioteca,
   type ClienteBaseDeDatos,
 } from "./conexion.js";
-import { sembrarDatos } from "./sembrar.js";
+import { sembrarDatos, librosIniciales } from "./sembrar.js";
 
 /** Sentencias DDL para crear las tablas del modelo si no existen aún en la base activa. */
 const SENTENCIAS_DDL: readonly string[] = [
@@ -138,6 +138,19 @@ export async function asegurarEsquemaYDatos(
       console.log("Base de datos sin registros. Ejecutando siembra inicial automática...");
       await sembrarDatos(conexion);
       console.log("Siembra inicial automática completada.");
+    } else {
+      // Si la base ya estaba sembrada con los textos cortos antiguos, actualiza los 6 libros
+      // iniciales a capítulos completos con marcadores de página navegables
+      for (const libro of librosIniciales) {
+        try {
+          await cliente.execute({
+            sql: "UPDATE libros SET contenidoCompleto = ?, totalPaginas = ? WHERE id = ? AND (contenidoCompleto NOT LIKE '%--- PÁGINA%' OR length(contenidoCompleto) < 600)",
+            args: [libro.contenidoCompleto, libro.totalPaginas, libro.id],
+          });
+        } catch {
+          // Ignora si el libro fue modificado o eliminado por el usuario
+        }
+      }
     }
   } catch (error) {
     console.error("Error al asegurar el esquema y datos iniciales:", error);
