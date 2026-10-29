@@ -49,12 +49,14 @@
       height: 100%;
       margin: 0;
       overflow: hidden;
+      max-width: 100vw;
     }
 
     body {
       min-width: 320px;
       color: var(--texto);
       background: var(--fondo);
+      overflow-x: hidden;
     }
 
     button,
@@ -69,6 +71,7 @@
     .aplicacion {
       display: flex;
       width: 100%;
+      max-width: 100vw;
       height: 100vh;
       height: 100dvh;
       min-height: 0;
@@ -3708,7 +3711,7 @@
 
     @media (max-width: 767px) {
       :root {
-        --alto-encabezado: calc(68px + env(safe-area-inset-top, 0px));
+        --alto-encabezado: calc(62px + env(safe-area-inset-top, 0px));
       }
 
       .encabezado {
@@ -3717,95 +3720,76 @@
         padding-top: env(safe-area-inset-top, 0px);
         padding-right: max(14px, env(safe-area-inset-right, 14px));
         padding-left: max(14px, env(safe-area-inset-left, 14px));
+        max-width: 100vw;
+        overflow: hidden;
+        box-sizing: border-box;
       }
 
       .encabezado-acciones {
         gap: 8px;
+        flex-shrink: 0;
       }
 
       .encabezado-detalle {
         display: none;
       }
 
+      .marca {
+        min-width: 0;
+        gap: 10px;
+        flex: 1 1 auto;
+      }
+
       .marca-icono {
-        width: 40px;
-        height: 40px;
-        flex-basis: 40px;
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
       }
 
       .marca h1 {
-        font-size: 16px;
+        font-size: 17px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin: 0;
       }
 
       .marca p {
         display: none;
       }
 
-      /* Controles táctiles del encabezado con mínimo 44px */
+      /* En móviles la navegación completa (Categorías, Cargar Libro, Dashboard, Roles/Perfiles)
+         se maneja cómodamente con el pulgar en la barra inferior. Ocultamos los duplicados del
+         encabezado para evitar que se desborde o se solapen los elementos. */
+      .selector-conexion,
+      .grupo-botones-catalogo,
+      .boton-cargar-pdf-header,
+      .boton-agregar-libro,
+      .boton-dashboard-header,
+      .selector-perfil,
       .boton-menu-lateral {
-        display: grid;
+        display: none !important;
+      }
+
+      .boton-campana {
         width: 44px;
         height: 44px;
         flex: 0 0 44px;
         min-width: 44px;
         min-height: 44px;
-        place-items: center;
-        border: 1px solid rgba(255, 255, 255, .2);
-        border-radius: 12px;
-        color: #fff;
-        background: rgba(255, 255, 255, .08);
-        cursor: pointer;
-      }
-
-      .boton-menu-lateral:hover,
-      .boton-menu-lateral[aria-expanded="true"] {
-        color: var(--dorado);
-        border-color: rgba(226, 176, 74, .8);
-        background: rgba(255, 255, 255, .13);
-      }
-
-      .boton-menu-lateral:focus-visible {
-        outline-color: var(--dorado);
-      }
-
-      .boton-campana,
-      .boton-dashboard-header {
-        width: 44px;
-        height: 44px;
-        flex: 0 0 44px;
-        min-width: 44px;
-        min-height: 44px;
-      }
-
-      .selector-conexion {
-        min-width: 44px;
-        height: 44px;
-        padding: 0 8px;
-      }
-
-      .selector-perfil {
-        min-width: 44px;
-        height: 44px;
-        padding: 3px 8px 3px 4px;
-      }
-
-      .avatar-perfil {
-        width: 32px;
-        height: 32px;
-        flex-basis: 32px;
-        font-size: 11px;
-      }
-
-      .boton-agregar-libro {
-        min-height: 44px;
-        padding: 0 12px;
-        font-size: 11px;
       }
 
       .disposicion {
         position: relative;
         display: flex;
-        padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+        flex-direction: column;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        min-height: 0;
+        flex: 1;
+        box-sizing: border-box;
+        padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px));
       }
 
       .barra-lateral {
@@ -3889,14 +3873,20 @@
 
       .contenido-principal {
         width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
         min-height: 0;
         flex: 1;
-        padding: 20px 16px calc(76px + env(safe-area-inset-bottom, 0px));
+        padding: 18px 14px calc(76px + env(safe-area-inset-bottom, 0px));
+        overflow-y: auto;
+        overflow-x: hidden;
       }
 
       .rejilla-libros {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 14px;
+        width: 100%;
+        box-sizing: border-box;
       }
 
       .portada-marco {
@@ -3963,13 +3953,53 @@
     }
 
     @media (max-width: 640px) {
+      .encabezado-contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin-bottom: 18px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .acciones-catalogo-banner {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .boton-subir-pdf-destacado {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        font-size: 13px;
+        box-sizing: border-box;
+      }
+
+      .busqueda {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 18px;
+      }
+
       .rejilla-libros {
         grid-template-columns: minmax(0, 1fr);
-        gap: 14px;
+        gap: 16px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .tarjeta-libro {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
       }
 
       .portada-marco {
         height: 185px;
+        width: 100%;
       }
 
       .panel-resumen {
@@ -4122,86 +4152,30 @@
 
     @media (max-width: 390px) {
       .encabezado {
-        padding-right: 8px;
-        padding-left: 8px;
-      }
-
-      .encabezado-acciones {
-        gap: 4px;
-      }
-
-      .marca-icono {
-        width: 36px;
-        height: 36px;
-        flex-basis: 36px;
+        padding-right: 10px;
+        padding-left: 10px;
       }
 
       .marca {
-        gap: 6px;
+        gap: 8px;
       }
 
       .marca h1 {
-        font-size: 13px;
+        font-size: 15px;
       }
 
-      .boton-dashboard-header,
-      .boton-campana,
-      .boton-menu-lateral {
+      .marca-icono {
+        width: 34px;
+        height: 34px;
+        flex-basis: 34px;
+      }
+
+      .boton-campana {
         width: 44px;
         height: 44px;
         flex-basis: 44px;
         min-width: 44px;
         min-height: 44px;
-      }
-
-      .selector-conexion {
-        min-width: 44px;
-        width: 44px;
-        height: 44px;
-        padding: 0;
-        justify-content: center;
-      }
-
-      .selector-conexion-modo {
-        display: none;
-      }
-
-      .selector-conexion-corto {
-        display: inline;
-        font-size: 11px;
-      }
-
-      .selector-perfil {
-        width: 44px;
-        min-width: 44px;
-        height: 44px;
-        justify-content: center;
-        padding: 0;
-        border-radius: 12px;
-      }
-
-      .avatar-perfil {
-        width: 28px;
-        height: 28px;
-        flex-basis: 28px;
-        font-size: 9px;
-      }
-
-      .nombre-perfil {
-        display: none;
-      }
-
-      .boton-agregar-libro {
-        width: 44px;
-        min-width: 44px;
-        height: 44px;
-        min-height: 44px;
-        justify-content: center;
-        padding: 0;
-      }
-
-      .boton-agregar-libro span {
-        display: none;
       }
 
       .rejilla-libros {
@@ -4228,13 +4202,15 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        height: calc(58px + env(safe-area-inset-bottom, 0px));
-        padding: 4px 6px max(6px, env(safe-area-inset-bottom, 0px));
+        height: calc(56px + env(safe-area-inset-bottom, 0px));
+        padding: 3px 4px max(4px, env(safe-area-inset-bottom, 0px));
         background: rgba(26, 26, 46, 0.96);
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
         border-top: 1px solid rgba(255, 255, 255, 0.12);
         box-shadow: 0 -4px 22px rgba(10, 10, 25, 0.32);
+        max-width: 100vw;
+        box-sizing: border-box;
       }
 
       .barra-inferior-item {
@@ -4243,10 +4219,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        flex: 1;
+        flex: 1 1 0;
         min-width: 44px;
         min-height: 44px;
-        padding: 4px 2px;
+        padding: 3px 2px;
         border: 0;
         border-radius: 10px;
         background: transparent;
@@ -4257,6 +4233,14 @@
         transition: color 140ms ease, background 140ms ease;
         touch-action: manipulation;
         -webkit-tap-highlight-color: transparent;
+      }
+
+      .barra-inferior-item span:not(.barra-inferior-icono):not(.barra-inferior-avatar) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        font-size: 10px;
       }
 
       .barra-inferior-item:hover,
