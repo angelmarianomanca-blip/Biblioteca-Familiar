@@ -1,10 +1,11 @@
 import type { RequestHandler } from "express";
 import { categorias } from "../../db/esquema.js";
-import { Categorias } from "../../servicios/index.js";
+import { Categorias, Usuarios } from "../../servicios/index.js";
 import {
   ErrorHttp,
   leerCuerpo,
   leerIdParametro,
+  leerUsuarioId,
   quitarCampos,
 } from "./http.js";
 
@@ -35,11 +36,16 @@ export const actualizarCategoria: RequestHandler = async (
   respuesta.json(categoria);
 };
 
-/** Elimina la categoría y devuelve 204 cuando existe. */
+/** Elimina la categoría y devuelve 204 cuando existe (solo administradores). */
 export const eliminarCategoria: RequestHandler = async (
   solicitud,
   respuesta,
 ) => {
+  const solicitanteId = await leerUsuarioId(solicitud);
+  const esAdmin = await Usuarios.esAdmin(solicitanteId);
+  if (!esAdmin) {
+    throw new ErrorHttp(403, "Solo los administradores pueden eliminar categorías.");
+  }
   const id = leerIdParametro(solicitud, "id");
   const eliminada = await Categorias.eliminar(id);
   if (!eliminada) throw new ErrorHttp(404, "No existe la categoría indicada.");

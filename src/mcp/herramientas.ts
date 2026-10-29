@@ -169,6 +169,30 @@ export function registrarHerramientas(servidor: McpServer) {
 
   registrarOperacion(
     servidor,
+    "eliminar_libro",
+    "Eliminar un libro y su contenido dependiente por completo.",
+    z.object({ libroId: esquemaId }).strict(),
+    async ({ libroId }) => {
+      const eliminado = await Libros.eliminar(libroId);
+      if (!eliminado) throw new Error(`No existe el libro ${libroId}.`);
+      return { eliminado: true, libroId };
+    },
+  );
+
+  registrarOperacion(
+    servidor,
+    "eliminar_categoria",
+    "Eliminar una categoría y sus libros asociados.",
+    z.object({ categoriaId: esquemaId }).strict(),
+    async ({ categoriaId }) => {
+      const eliminada = await Categorias.eliminar(categoriaId);
+      if (!eliminada) throw new Error(`No existe la categoría ${categoriaId}.`);
+      return { eliminada: true, categoriaId };
+    },
+  );
+
+  registrarOperacion(
+    servidor,
     "crear_resumen",
     "Crear un resumen asociado al libro indicado.",
     z.object({ libroId: esquemaId, datos: esquemaCamposResumen }).strict(),

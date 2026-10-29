@@ -10,12 +10,13 @@ try {
     CREATE TABLE IF NOT EXISTS usuarios (
       id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
       nombre TEXT NOT NULL,
-      avatarColor TEXT NOT NULL
+      avatarColor TEXT NOT NULL,
+      rol TEXT NOT NULL DEFAULT 'lector'
     )
   `);
   await cliente.execute({
-    sql: "INSERT OR IGNORE INTO usuarios (id, nombre, avatarColor) VALUES (?, ?, ?), (?, ?, ?)",
-    args: [1, "Lector 1", "#e2b04a", 2, "Lector 2", "#6179c9"],
+    sql: "INSERT OR IGNORE INTO usuarios (id, nombre, avatarColor, rol) VALUES (?, ?, ?, ?), (?, ?, ?, ?)",
+    args: [1, "Lector 1", "#e2b04a", "admin", 2, "Lector 2", "#6179c9", "lector"],
   });
 } finally {
   await cliente.close();

@@ -118,11 +118,18 @@ export const preguntas = tablaSQLite("preguntas", {
   explicacion: texto("explicacion").notNull(),
 });
 
+/** Roles disponibles para los perfiles de usuario. */
+export type RolUsuario = "admin" | "lector";
+
 /** Perfiles sencillos entre los que puede alternar la interfaz. */
 export const usuarios = tablaSQLite("usuarios", {
   id: entero("id").primaryKey({ autoIncrement: true }),
   nombre: texto("nombre").notNull(),
   avatarColor: texto("avatarColor").notNull(),
+  rol: texto("rol", { enum: ["admin", "lector"] })
+    .$type<RolUsuario>()
+    .notNull()
+    .default("lector"),
 });
 
 /** Representa la lectura de un perfil para cada libro. */

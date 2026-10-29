@@ -1,12 +1,13 @@
 import type { RequestHandler } from "express";
 import { libros } from "../../db/esquema.js";
-import { Libros } from "../../servicios/index.js";
+import { Libros, Usuarios } from "../../servicios/index.js";
 import {
   ErrorHttp,
   leerCuerpo,
   leerIdParametro,
   leerIdTexto,
   leerTextoQuery,
+  leerUsuarioId,
   quitarCampos,
 } from "./http.js";
 
@@ -55,11 +56,16 @@ export const actualizarLibro: RequestHandler = async (
   respuesta.json(libro);
 };
 
-/** Elimina el libro y su contenido dependiente cuando existe. */
+/** Elimina el libro y su contenido dependiente cuando existe (solo administradores). */
 export const eliminarLibro: RequestHandler = async (
   solicitud,
   respuesta,
 ) => {
+  const solicitanteId = await leerUsuarioId(solicitud);
+  const esAdmin = await Usuarios.esAdmin(solicitanteId);
+  if (!esAdmin) {
+    throw new ErrorHttp(403, "Solo los administradores pueden eliminar libros.");
+  }
   const id = leerIdParametro(solicitud, "id");
   const eliminado = await Libros.eliminar(id);
   if (!eliminado) throw new ErrorHttp(404, "No existe el libro indicado.");

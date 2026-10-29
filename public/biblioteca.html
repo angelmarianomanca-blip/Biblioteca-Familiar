@@ -4352,6 +4352,7 @@
         transition-duration: 0.01ms !important;
       }
     }
+
     /* Estilos de carga de archivos (PDF / TXT) */
     .zona-carga-archivo {
       display: flex;
@@ -4368,12 +4369,14 @@
       cursor: pointer;
       transition: all 0.2s ease;
     }
+
     .zona-carga-archivo:hover,
     .zona-carga-archivo.arrastrando {
       border-color: var(--dorado);
       background: #fffcf4;
       box-shadow: 0 4px 15px rgba(226, 176, 74, 0.12);
     }
+
     .zona-carga-icono {
       width: 44px;
       height: 44px;
@@ -4384,18 +4387,21 @@
       align-items: center;
       justify-content: center;
     }
+
     .zona-carga-texto strong {
       display: block;
       font-size: 13px;
       color: var(--azul-oscuro);
       margin-bottom: 3px;
     }
+
     .zona-carga-texto p {
       margin: 0;
       font-size: 11px;
       color: var(--texto-suave);
       max-width: 480px;
     }
+
     .estado-archivo-cargado {
       display: inline-flex;
       align-items: center;
@@ -4416,6 +4422,7 @@
       justify-content: space-between;
       margin-bottom: 5px;
     }
+
     .boton-enlace-accion {
       background: none;
       border: none;
@@ -4426,9 +4433,11 @@
       padding: 0;
       text-decoration: underline;
     }
+
     .boton-enlace-accion:hover {
       color: var(--azul-oscuro);
     }
+
     .panel-nueva-categoria {
       margin: 10px 0 16px;
       padding: 14px 16px;
@@ -4437,6 +4446,7 @@
       background: #fdfaf3;
       animation: aparecer-suave 0.2s ease;
     }
+
     .panel-nueva-categoria-titulo {
       font-size: 11px;
       font-weight: 700;
@@ -4446,17 +4456,20 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .selector-icono-categoria {
       display: flex;
       align-items: center;
       gap: 8px;
       flex-wrap: wrap;
     }
+
     .emojis-rapidos {
       display: flex;
       gap: 4px;
       flex-wrap: wrap;
     }
+
     .boton-emoji {
       width: 28px;
       height: 28px;
@@ -4471,19 +4484,23 @@
       justify-content: center;
       transition: transform 0.1s ease, background 0.1s ease;
     }
+
     .boton-emoji:hover {
       transform: scale(1.15);
       background: #fff5e0;
     }
+
     .boton-emoji.seleccionado {
       border-color: var(--dorado);
       background: #fbf0d9;
     }
+
     .acciones-nueva-cat {
       display: flex;
       gap: 8px;
       margin-top: 10px;
     }
+
     .boton-lateral-nueva-categoria {
       display: flex;
       align-items: center;
@@ -4500,6 +4517,7 @@
       cursor: pointer;
       transition: all 0.15s ease;
     }
+
     .boton-lateral-nueva-categoria:hover {
       border-color: var(--dorado);
       background: #fffcf4;
@@ -4519,11 +4537,13 @@
       background: #f9f9fc;
       border: 1px solid #ebebf2;
     }
+
     .grupo-herramientas {
       display: flex;
       align-items: center;
       gap: 6px;
     }
+
     .boton-herramienta {
       display: inline-flex;
       align-items: center;
@@ -4539,21 +4559,25 @@
       cursor: pointer;
       transition: all 0.15s ease;
     }
+
     .boton-herramienta:hover {
       border-color: var(--dorado);
       background: #fffbf2;
     }
+
     .boton-herramienta.activo {
       border-color: var(--dorado);
       background: #f9e8bd;
       color: #63430c;
     }
+
     .boton-indice-abrir {
       color: #724e10;
       background: #fef5e4;
       border: 1px solid #edd5a3;
       font-weight: 700;
     }
+
     .boton-indice-abrir:hover {
       background: #fae5be;
     }
@@ -4563,50 +4587,62 @@
       background: #fbf0d9;
       border-color: #ebd7b3;
     }
+
     .panel-lectura.tema-sepia .lectura-texto {
       color: #433422;
     }
+
     .panel-lectura.tema-sepia .barra-herramientas-lectura {
       background: #f3e5c7;
       border-color: #e5d3ae;
     }
+
     .panel-lectura.tema-sepia .controles-voz {
       background: #f6ebd2;
       border-color: #e5d4b0;
     }
+
     .panel-lectura.tema-oscuro {
       background: #171723;
       border-color: #272738;
       color: #dddded;
     }
+
     .panel-lectura.tema-oscuro .lectura-texto {
       color: #d6d6e6;
     }
+
     .panel-lectura.tema-oscuro .lectura-meta-titulo {
       color: #f0f0fa;
     }
+
     .panel-lectura.tema-oscuro .lectura-paginas {
       background: #27273a;
       color: #e2b04a;
     }
+
     .panel-lectura.tema-oscuro .barra-herramientas-lectura {
       background: #202030;
       border-color: #2e2e42;
     }
+
     .panel-lectura.tema-oscuro .boton-herramienta {
       background: #242436;
       border-color: #38384f;
       color: #e0e0ea;
     }
+
     .panel-lectura.tema-oscuro .controles-voz {
       background: #1d1d2b;
       border-color: #313145;
     }
+
     .panel-lectura.tema-oscuro .boton-voz {
       background: #242436;
       border-color: #393950;
       color: #d8d8e6;
     }
+
     .panel-lectura.tema-oscuro .control-pagina input {
       background: #242436;
       border-color: #393950;
@@ -4626,6 +4662,7 @@
       padding: 20px;
       animation: aparecer-suave 0.15s ease;
     }
+
     .modal-indice-caja {
       width: min(100%, 600px);
       max-height: 80vh;
@@ -4636,6 +4673,7 @@
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
       overflow: hidden;
     }
+
     .modal-indice-cabecera {
       display: flex;
       align-items: center;
@@ -4644,6 +4682,7 @@
       border-bottom: 1px solid var(--borde);
       background: #fcfcfd;
     }
+
     .modal-indice-cabecera h3 {
       margin: 0;
       font-size: 15px;
@@ -4652,11 +4691,13 @@
       align-items: center;
       gap: 8px;
     }
+
     .modal-indice-filtro {
       padding: 10px 20px;
       border-bottom: 1px solid var(--borde);
       background: #ffffff;
     }
+
     .modal-indice-filtro input {
       width: 100%;
       height: 36px;
@@ -4666,9 +4707,11 @@
       outline: none;
       font-size: 12px;
     }
+
     .modal-indice-filtro input:focus {
       border-color: var(--dorado);
     }
+
     .modal-indice-lista {
       flex: 1;
       overflow-y: auto;
@@ -4677,6 +4720,7 @@
       flex-direction: column;
       gap: 7px;
     }
+
     .modal-indice-item {
       display: flex;
       align-items: flex-start;
@@ -4689,15 +4733,18 @@
       text-align: left;
       transition: all 0.15s ease;
     }
+
     .modal-indice-item:hover {
       background: #fbf5e9;
       border-color: #eeddbb;
       transform: translateX(3px);
     }
+
     .modal-indice-item.actual {
       background: #fcf4e0;
       border-color: var(--dorado);
     }
+
     .modal-indice-badge-pag {
       padding: 4px 8px;
       border-radius: 6px;
@@ -4707,20 +4754,24 @@
       font-weight: 700;
       white-space: nowrap;
     }
+
     .modal-indice-item.actual .modal-indice-badge-pag {
       background: var(--dorado);
       color: #fff;
     }
+
     .modal-indice-info {
       flex: 1;
       min-width: 0;
     }
+
     .modal-indice-titulo {
       font-size: 12px;
       font-weight: 700;
       color: var(--azul-oscuro);
       margin-bottom: 2px;
     }
+
     .modal-indice-preview {
       font-size: 11px;
       color: var(--texto-suave);
@@ -4741,6 +4792,7 @@
       overflow: hidden;
       padding: 22px;
     }
+
     .caja-texto-original {
       padding: 12px 14px;
       background: #f6f7fa;
@@ -4753,6 +4805,7 @@
       margin-bottom: 14px;
       color: #374151;
     }
+
     .caja-texto-traducido {
       padding: 12px 14px;
       background: #fefce8;
@@ -4765,11 +4818,13 @@
       margin-bottom: 14px;
       color: #422006;
     }
+
     .grupo-botones-catalogo {
       display: flex;
       align-items: center;
       gap: 8px;
     }
+
     .boton-cargar-pdf-header {
       display: inline-flex;
       min-height: 39px;
@@ -4787,11 +4842,13 @@
       transition: all 0.15s ease;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
+
     .boton-cargar-pdf-header:hover {
       background: #2d2d4c;
       border-color: #f5d07c;
       transform: translateY(-1px);
     }
+
     .boton-subir-pdf-destacado {
       display: inline-flex;
       align-items: center;
@@ -4803,6 +4860,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 14px rgba(226, 176, 74, 0.25);
     }
+
     .boton-explorar-pdf {
       display: inline-flex;
       align-items: center;
@@ -4814,6 +4872,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(226, 176, 74, 0.2);
     }
+
     .barra-busqueda-lector {
       margin-bottom: 14px;
       padding: 12px 16px;
@@ -4822,11 +4881,13 @@
       border: 1px solid #e4e4ed;
       animation: aparecer-suave 0.15s ease;
     }
+
     .barra-busqueda-lector-input {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .barra-busqueda-lector-input input {
       flex: 1;
       height: 36px;
@@ -4836,9 +4897,11 @@
       outline: none;
       font-size: 12px;
     }
+
     .barra-busqueda-lector-input input:focus {
       border-color: var(--dorado);
     }
+
     .chips-paginas-busqueda {
       display: flex;
       align-items: center;
@@ -4847,6 +4910,7 @@
       margin-top: 10px;
       font-size: 11px;
     }
+
     .chip-pagina {
       padding: 5px 10px;
       border-radius: 7px;
@@ -4857,12 +4921,14 @@
       font-weight: 600;
       transition: all 0.1s ease;
     }
+
     .chip-pagina:hover,
     .chip-pagina.actual {
       background: #fbf0d9;
       border-color: var(--dorado);
       color: #724e10;
     }
+
     @media (max-width: 600px) {
       .boton-cargar-pdf-header {
         width: 44px;
@@ -4872,8 +4938,334 @@
         justify-content: center;
         padding: 0;
       }
+
       .boton-cargar-pdf-header span {
         display: none;
+      }
+    }
+
+    /* ===== ESTILOS DE ROLES, GESTIÓN Y ELIMINACIÓN ===== */
+    .badge-rol {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .badge-rol-admin {
+      background: linear-gradient(135deg, rgba(226, 176, 74, 0.32), rgba(226, 176, 74, 0.12));
+      color: #ffd875;
+      border: 1px solid rgba(226, 176, 74, 0.55);
+    }
+
+    .badge-rol-lector {
+      background: rgba(97, 121, 201, 0.22);
+      color: #b0c2ff;
+      border: 1px solid rgba(97, 121, 201, 0.45);
+    }
+
+    /* Acciones flotantes en la tarjeta de libro */
+    .acciones-tarjeta-libro {
+      position: absolute;
+      top: 9px;
+      right: 9px;
+      z-index: 3;
+      display: flex;
+      gap: 6px;
+    }
+
+    .acciones-tarjeta-libro .boton-editar-libro {
+      position: static;
+    }
+
+    .boton-eliminar-libro-tarjeta {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.76);
+      border-radius: 10px;
+      color: #fff;
+      background: rgba(229, 62, 62, 0.94);
+      box-shadow: 0 4px 12px rgba(229, 62, 62, 0.35);
+      cursor: pointer;
+      transition: all 140ms ease;
+    }
+
+    .boton-eliminar-libro-tarjeta:hover {
+      background: #c53030;
+      transform: scale(1.08);
+      color: #fff;
+    }
+
+    .boton-eliminar-libro-tarjeta:focus-visible {
+      outline: 2px solid #e53e3e;
+      outline-offset: 2px;
+    }
+
+    /* Acciones en la cabecera del visor de libro */
+    .detalle-cabecera-acciones {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .boton-peligro-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(229, 62, 62, 0.12) !important;
+      color: #e53e3e !important;
+      border: 1px solid rgba(229, 62, 62, 0.32) !important;
+      cursor: pointer;
+      transition: all 140ms ease;
+    }
+
+    .boton-peligro-mini:hover {
+      background: #e53e3e !important;
+      color: #fff !important;
+      border-color: #c53030 !important;
+    }
+
+    /* Eliminar categoría en la barra lateral */
+    .categoria-item-lateral {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      width: 100%;
+    }
+
+    .categoria-item-lateral .categoria-enlace {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .boton-eliminar-cat-lateral {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      flex: 0 0 30px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: #a0a0b2;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 140ms ease;
+    }
+
+    .categoria-item-lateral:hover .boton-eliminar-cat-lateral,
+    .boton-eliminar-cat-lateral:focus-visible {
+      opacity: 1;
+    }
+
+    .boton-eliminar-cat-lateral:hover {
+      background: rgba(229, 62, 62, 0.14);
+      color: #e53e3e;
+      border-color: rgba(229, 62, 62, 0.3);
+    }
+
+    /* Modal de gestión de usuarios */
+    .modal-usuarios {
+      max-width: 540px;
+    }
+
+    .gestion-usuarios-contenido {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .descripcion-modal-usuarios {
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--texto-secundario, #626274);
+      margin: 0;
+    }
+
+    .lista-usuarios-modal {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .item-usuario-modal {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border: 1px solid var(--borde, #e2e2ec);
+      border-radius: 12px;
+      background: #fdfdfd;
+      transition: all 140ms ease;
+    }
+
+    .item-usuario-modal.activo {
+      border-color: var(--dorado, #e2b04a);
+      background: rgba(226, 176, 74, 0.08);
+      box-shadow: 0 2px 8px rgba(226, 176, 74, 0.14);
+    }
+
+    .avatar-usuario-modal {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      flex-shrink: 0;
+    }
+
+    .info-usuario-modal {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .nombre-usuario-modal {
+      font-size: 14px;
+      color: var(--azul-oscuro, #1a1a2e);
+    }
+
+    .acciones-usuario-modal {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .etiqueta-activo {
+      font-size: 12px;
+      font-weight: 700;
+      color: #2b8252;
+      background: rgba(72, 187, 120, 0.15);
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .seccion-crear-usuario {
+      margin-top: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--borde, #e2e2ec);
+    }
+
+    .boton-expandir-crear-usuario {
+      width: 100%;
+      justify-content: center;
+      min-height: 40px;
+    }
+
+    .formulario-crear-usuario {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background: #f8f8fb;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--borde, #e2e2ec);
+    }
+
+    .formulario-crear-usuario h4 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--azul-oscuro, #1a1a2e);
+    }
+
+    .paleta-colores-avatar {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .muestra-color {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 120ms ease;
+    }
+
+    .muestra-color:hover,
+    .muestra-color.seleccionado {
+      transform: scale(1.2);
+      border-color: #1a1a2e;
+    }
+
+    .nota-lector-usuarios {
+      font-size: 12px;
+      color: #636682;
+      background: #f4f5f9;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    /* Optimización Responsive */
+    @media (max-width: 900px) {
+      .detalle-cabecera {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .detalle-cabecera-acciones {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .selector-perfil .nombre-perfil {
+        display: none;
+      }
+
+      .selector-perfil .badge-rol {
+        font-size: 8px;
+        padding: 2px 4px;
+      }
+
+      .acciones-tarjeta-libro {
+        opacity: 1;
+      }
+
+      .boton-eliminar-cat-lateral {
+        opacity: 0.9;
+      }
+
+      .acciones-catalogo-banner {
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      .boton-subir-pdf-destacado {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .modal {
+        max-width: 95vw !important;
+        margin: 10px auto;
       }
     }
   </style>
@@ -5050,8 +5442,9 @@
         if (partes[0] === "usuarios" && partes.length === 1 && metodo === "GET") {
           return llamar("listar_usuarios");
         }
-        if (partes[0] === "categorias" && partes.length === 1 && metodo === "GET") {
-          return llamar("listar_categorias");
+        if (partes[0] === "categorias") {
+          if (partes.length === 1 && metodo === "GET") return llamar("listar_categorias");
+          if (partes.length === 2 && metodo === "DELETE") return llamar("eliminar_categoria", { categoriaId: Number(partes[1]) });
         }
         if (partes[0] === "estadisticas" && metodo === "GET") {
           return llamar("consultar_estadisticas");
@@ -5071,6 +5464,9 @@
           }
           if (partes.length === 2 && metodo === "PUT") {
             return llamar("actualizar_libro", { libroId: idLibro, datos });
+          }
+          if (partes.length === 2 && metodo === "DELETE") {
+            return llamar("eliminar_libro", { libroId: idLibro });
           }
 
           const coleccion = partes[2];
@@ -5188,9 +5584,24 @@
         return solicitarApi("/categorias", { method: "POST", body: JSON.stringify(datos) });
       }
 
+      /** Elimina una categoría y sus libros dependientes. */
+      async function eliminarCategoria(categoriaId) {
+        return solicitarApi(`/categorias/${categoriaId}`, { method: "DELETE" });
+      }
+
       /** Obtiene los perfiles disponibles para el selector del encabezado. */
       async function obtenerUsuarios() {
         return solicitarApi("/usuarios");
+      }
+
+      /** Crea un nuevo perfil de usuario con rol. */
+      async function crearUsuario(datos) {
+        return solicitarApi("/usuarios", { method: "POST", body: JSON.stringify(datos) });
+      }
+
+      /** Elimina un perfil de usuario por ID. */
+      async function eliminarUsuario(usuarioId) {
+        return solicitarApi(`/usuarios/${usuarioId}`, { method: "DELETE" });
       }
 
       /** Consulta de una sola vez los agregados y las listas del dashboard. */
@@ -5211,6 +5622,11 @@
       /** Actualiza un libro existente y conserva su identificador de ruta. */
       async function actualizarLibro(libroId, datos) {
         return solicitarApi(`/libros/${libroId}`, { method: "PUT", body: JSON.stringify(datos) });
+      }
+
+      /** Elimina un libro del catálogo y su contenido dependiente. */
+      async function eliminarLibro(libroId) {
+        return solicitarApi(`/libros/${libroId}`, { method: "DELETE" });
       }
 
       /** Lista resúmenes de un libro para mantener la pestaña sincronizada. */
@@ -5416,12 +5832,16 @@
       /** Agrupa las llamadas de red que usa la pantalla inicial. */
       const serviciosApi = {
         obtenerUsuarios,
+        crearUsuario,
+        eliminarUsuario,
         obtenerCategorias,
         crearCategoria,
+        eliminarCategoria,
         obtenerEstadisticas,
         obtenerLibroCompleto,
         crearLibro,
         actualizarLibro,
+        eliminarLibro,
         obtenerLibros,
         obtenerResumenes,
         crearResumen,
@@ -6388,6 +6808,9 @@
           check: <path d="m5 12 4 4L19 6"/>,
           cruz: <path d="m6 6 12 12M18 6 6 18"/>,
           papelera: <><path d="M4 7h16M10 11v6M14 11v6M6 7l1 14h10l1-14M9 7V4h6v3"/></>,
+          eliminar: <><path d="M4 7h16M10 11v6M14 11v6M6 7l1 14h10l1-14M9 7V4h6v3"/></>,
+          usuario: <><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></>,
+          corona: <><path d="m2 4 3 12h14l3-12-6 7-4-7-4 7-6-7zm3 16h14"/></>,
           editar: <><path d="m4 16.5-.8 4.3 4.3-.8L19.8 7.7a2.1 2.1 0 0 0-3-3z"/><path d="m14.9 6.6 2.5 2.5"/></>,
           guardar: <><path d="M5 4h12l3 3v13H4V4z"/><path d="M8 4v6h8V4M8 20v-6h8v6"/></>,
           brillo: <><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="m19 15 .9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></>,
@@ -6790,7 +7213,7 @@
       }
 
       /** Tarjeta de catálogo con portada, categoría, autor y avance. */
-      function TarjetaLibro({ libro, alAbrir, alEditar, style }) {
+      function TarjetaLibro({ libro, alAbrir, alEditar, alEliminar, esAdmin, style }) {
         const portadaAlternativa = crearPortadaAlternativa(libro);
         return (
           <article className="tarjeta-libro" style={style}>
@@ -6807,15 +7230,33 @@
                 }}
               />
               <span className="portada-brillo" />
-              <button
-                className="boton-editar-libro"
-                type="button"
-                aria-label={`Editar ${libro.titulo}`}
-                title={`Editar ${libro.titulo}`}
-                onClick={(evento) => { evento.stopPropagation(); alEditar(libro); }}
-              >
-                <Icono nombre="editar" tamano={15} />
-              </button>
+              <div className="acciones-tarjeta-libro">
+                <button
+                  className="boton-editar-libro"
+                  type="button"
+                  aria-label={`Editar ${libro.titulo}`}
+                  title={`Editar ${libro.titulo}`}
+                  onClick={(evento) => { evento.stopPropagation(); alEditar(libro); }}
+                >
+                  <Icono nombre="editar" tamano={15} />
+                </button>
+                {esAdmin && alEliminar && (
+                  <button
+                    className="boton-eliminar-libro-tarjeta"
+                    type="button"
+                    aria-label={`Eliminar ${libro.titulo}`}
+                    title={`Eliminar ${libro.titulo}`}
+                    onClick={(evento) => {
+                      evento.stopPropagation();
+                      if (window.confirm(`¿Estás seguro de que deseas eliminar "${libro.titulo}"?`)) {
+                        alEliminar(libro);
+                      }
+                    }}
+                  >
+                    <Icono nombre="eliminar" tamano={15} />
+                  </button>
+                )}
+              </div>
             </div>
             <div className="contenido-tarjeta">
               <div className="fila-badge">
@@ -6855,7 +7296,7 @@
       }
 
       /** Modal para crear o editar los campos principales de un libro con subida de PDF/TXT y creación de categorías. */
-      function FormularioLibroModal({ abierto, libro, categorias, alCerrar, alGuardar, alCrearCategoria, autoAbrirSelector }) {
+      function FormularioLibroModal({ abierto, libro, categorias, alCerrar, alGuardar, alEliminar, esAdmin, alCrearCategoria, autoAbrirSelector }) {
         const notificar = React.useContext(ContextoNotificaciones);
         const [campos, establecerCampos] = React.useState({});
         const [guardando, establecerGuardado] = React.useState(false);
@@ -7038,8 +7479,9 @@
           try {
             await alGuardar({
               ...campos,
+              portadaUrl: (campos.portadaUrl && campos.portadaUrl.trim()) ? campos.portadaUrl.trim() : "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80",
               categoriaId: Number(campos.categoriaId),
-              totalPaginas: Number(campos.totalPaginas),
+              totalPaginas: Number(campos.totalPaginas) || 1,
             }, libro?.id);
             notificar(libro ? "Libro actualizado." : "Libro agregado a la biblioteca.");
             alCerrar();
@@ -7220,11 +7662,27 @@
 
               {error && <p className="mensaje-error-detalle" role="alert">{error}</p>}
               <div className="acciones-formulario-admin">
-                <button className="boton boton-primario" type="submit" disabled={guardando || procesandoArchivo || (!categorias.length && !campos.categoriaId)}>
-                  <Icono nombre="guardar" tamano={14} /> {guardando ? <><span className="indicador-carga-mini" /> Guardando…</> : "Guardar libro"}
-                </button>
+                {libro && esAdmin && alEliminar && (
+                  <button
+                    className="boton boton-peligro-mini boton-eliminar-modal"
+                    type="button"
+                    disabled={guardando}
+                    onClick={() => {
+                      if (window.confirm(`¿Estás seguro de que deseas eliminar "${libro.titulo}"? Esta acción borrará también sus notas y resúmenes.`)) {
+                        alEliminar(libro);
+                        alCerrar();
+                      }
+                    }}
+                  >
+                    <Icono nombre="eliminar" tamano={14} /> <span>Eliminar libro</span>
+                  </button>
+                )}
+                <div style={{ flex: 1 }} />
                 <button className="boton boton-mini" type="button" disabled={guardando} onClick={alCerrar}>
                   <Icono nombre="cerrar" tamano={14} /> Cancelar
+                </button>
+                <button className="boton boton-primario" type="submit" disabled={guardando || procesandoArchivo || (!categorias.length && !campos.categoriaId)}>
+                  <Icono nombre="guardar" tamano={14} /> {guardando ? <><span className="indicador-carga-mini" /> Guardando…</> : "Guardar libro"}
                 </button>
               </div>
             </form>
@@ -7233,7 +7691,7 @@
       }
 
       /** Layout común con encabezado, selector lateral, navegación para pulgar y área de contenido. */
-      function Layout({ categorias, categoriaSeleccionada, alSeleccionarCategoria, cantidadTotal, alAbrirLibroRecordatorio, dashboardActivo, alCambiarDashboard, catalogoActivo, alAgregarLibro, modoConexion, estadoConexionMcp, alCambiarModoConexion, usuarios, usuarioActivo, alCambiarPerfil, alIrACatalogo, alCrearCategoria, children }) {
+      function Layout({ categorias, categoriaSeleccionada, alSeleccionarCategoria, cantidadTotal, alAbrirLibroRecordatorio, dashboardActivo, alCambiarDashboard, catalogoActivo, alAgregarLibro, modoConexion, estadoConexionMcp, alCambiarModoConexion, usuarios, usuarioActivo, alCambiarPerfil, alAbrirGestionUsuarios, alIrACatalogo, alCrearCategoria, alEliminarCategoria, children }) {
         const notificar = React.useContext(ContextoNotificaciones);
         const [menuLateralAbierto, establecerMenuLateralAbierto] = React.useState(false);
         const [esMovil, establecerEsMovil] = React.useState(() => window.matchMedia?.("(max-width: 767px)").matches ?? false);
@@ -7391,14 +7849,23 @@
                     id="selector-perfil"
                     className="selector-perfil"
                     type="button"
-                    aria-label={`Perfil actual: ${usuarioActivo.nombre}. Cambiar al siguiente perfil`}
-                    title={`Perfil: ${usuarioActivo.nombre}. Click para alternar`}
-                    onClick={alCambiarPerfil}
+                    aria-label={`Perfil actual: ${usuarioActivo.nombre} (${usuarioActivo.rol || 'lector'}). Administrar usuarios y roles`}
+                    title={`Perfil: ${usuarioActivo.nombre} - ${usuarioActivo.rol === 'admin' ? '👑 Administrador' : '📖 Lector'}. Pulsa para administrar o cambiar`}
+                    onClick={() => {
+                      if (alAbrirGestionUsuarios) {
+                        alAbrirGestionUsuarios();
+                      } else {
+                        alCambiarPerfil();
+                      }
+                    }}
                   >
                     <span className="avatar-perfil" style={{ backgroundColor: usuarioActivo.avatarColor }} aria-hidden="true">
                       {usuarioActivo.nombre.split(/\s+/u).map((parte) => parte[0]).join("").slice(0, 2).toLocaleUpperCase("es")}
                     </span>
                     <span className="nombre-perfil">{usuarioActivo.nombre}</span>
+                    <span className={`badge-rol badge-rol-${usuarioActivo.rol || 'lector'}`}>
+                      {usuarioActivo.rol === 'admin' ? '👑 Admin' : '📖 Lector'}
+                    </span>
                   </button>
                 )}
                 {catalogoActivo && (
@@ -7454,16 +7921,33 @@
                     <span className="categoria-conteo">{cantidadTotal}</span>
                   </button>
                   {categorias.map((categoria) => (
-                    <button
-                      key={categoria.id}
-                      className={`categoria-enlace ${categoriaSeleccionada === categoria.id ? "activa" : ""}`}
-                      type="button"
-                      onClick={() => cambiarCategoria(categoria.id)}
-                    >
-                      <span className="categoria-icono" aria-hidden="true">{categoria.icono || "📚"}</span>
-                      <span className="categoria-nombre">{categoria.nombre}</span>
-                      <span className="categoria-conteo">{categoria.cantidadLibros}</span>
-                    </button>
+                    <div key={categoria.id} className="categoria-item-lateral">
+                      <button
+                        className={`categoria-enlace ${categoriaSeleccionada === categoria.id ? "activa" : ""}`}
+                        type="button"
+                        onClick={() => cambiarCategoria(categoria.id)}
+                      >
+                        <span className="categoria-icono" aria-hidden="true">{categoria.icono || "📚"}</span>
+                        <span className="categoria-nombre">{categoria.nombre}</span>
+                        <span className="categoria-conteo">{categoria.cantidadLibros}</span>
+                      </button>
+                      {usuarioActivo?.rol === "admin" && alEliminarCategoria && (
+                        <button
+                          type="button"
+                          className="boton-eliminar-cat-lateral"
+                          aria-label={`Eliminar categoría ${categoria.nombre}`}
+                          title={`Eliminar categoría "${categoria.nombre}" y sus libros`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (window.confirm(`¿Estás seguro de que deseas eliminar la categoría "${categoria.nombre}" y todos los libros que contiene?`)) {
+                              alEliminarCategoria(categoria);
+                            }
+                          }}
+                        >
+                          <Icono nombre="eliminar" tamano={13} />
+                        </button>
+                      )}
+                    </div>
                   ))}
                   <button
                     className="boton-lateral-nueva-categoria"
@@ -7536,15 +8020,21 @@
                 <button
                   className="barra-inferior-item"
                   type="button"
-                  aria-label={`Perfil actual: ${usuarioActivo.nombre}. Pulsa para alternar perfil`}
-                  onClick={alCambiarPerfil}
+                  aria-label={`Perfil actual: ${usuarioActivo.nombre} (${usuarioActivo.rol || 'lector'}). Administrar usuarios y roles`}
+                  onClick={() => {
+                    if (alAbrirGestionUsuarios) {
+                      alAbrirGestionUsuarios();
+                    } else {
+                      alCambiarPerfil();
+                    }
+                  }}
                 >
                   <span className="barra-inferior-icono">
                     <span className="barra-inferior-avatar" style={{ backgroundColor: usuarioActivo.avatarColor }}>
                       {usuarioActivo.nombre.split(/\s+/u).map((p) => p[0]).join("").slice(0, 2).toLocaleUpperCase("es")}
                     </span>
                   </span>
-                  <span>{usuarioActivo.nombre.split(/\s+/u)[0]}</span>
+                  <span>{usuarioActivo.rol === "admin" ? "👑 Admin" : "📖 Lector"}</span>
                 </button>
               )}
             </nav>
@@ -9805,7 +10295,7 @@
       }
 
       /** Carga el detalle y cambia entre las seis vistas del libro. */
-      function VistaDetalleLibro({ libroTarjeta, alVolver, alCambiarProgreso }) {
+      function VistaDetalleLibro({ libroTarjeta, alVolver, alCambiarProgreso, alEditar, alEliminar, esAdmin }) {
         const notificar = React.useContext(ContextoNotificaciones);
         const [libro, establecerLibro] = React.useState(null);
         const [pestana, establecerPestana] = React.useState("lectura");
@@ -9916,6 +10406,33 @@
                   <BadgeCategoria nombre={libroTarjeta.categoriaNombre} icono={libroTarjeta.categoriaIcono} />
                 </div>
                 <p className="detalle-autor">{libroTarjeta.autor}</p>
+              </div>
+              <div className="detalle-cabecera-acciones">
+                {alEditar && (
+                  <button
+                    type="button"
+                    className="boton boton-mini boton-editar-cabecera"
+                    onClick={() => alEditar(libroTarjeta)}
+                    title={`Editar ${libroTarjeta.titulo}`}
+                  >
+                    <Icono nombre="editar" tamano={14} /> <span>Editar</span>
+                  </button>
+                )}
+                {esAdmin && alEliminar && (
+                  <button
+                    type="button"
+                    className="boton boton-mini boton-peligro-mini boton-eliminar-cabecera"
+                    onClick={() => {
+                      if (window.confirm(`¿Estás seguro de que deseas eliminar "${libroTarjeta.titulo}"? Esta acción borrará también sus resúmenes y exámenes.`)) {
+                        alEliminar(libroTarjeta);
+                        alVolver();
+                      }
+                    }}
+                    title={`Eliminar ${libroTarjeta.titulo}`}
+                  >
+                    <Icono nombre="eliminar" tamano={14} /> <span>Eliminar</span>
+                  </button>
+                )}
               </div>
             </header>
 
@@ -10228,6 +10745,156 @@
         );
       }
 
+      /** Modal para administrar perfiles de usuario, roles y crear nuevos perfiles. */
+      function ModalGestionUsuarios({ abierto, alCerrar, usuarios, usuarioActivo, alSeleccionarUsuario, alCrearUsuario, alEliminarUsuario }) {
+        const [nombre, establecerNombre] = React.useState("");
+        const [avatarColor, establecerColor] = React.useState("#4a90e2");
+        const [rol, establecerRol] = React.useState("lector");
+        const [creando, establecerCreando] = React.useState(false);
+        const [guardando, establecerGuardando] = React.useState(false);
+
+        const colores = ["#e2b04a", "#6179c9", "#48bb78", "#ed8936", "#9f7aea", "#e53e3e", "#38b2ac", "#319795"];
+        const esAdmin = usuarioActivo?.rol === "admin";
+
+        async function enviarNuevoUsuario(e) {
+          e.preventDefault();
+          if (!nombre.trim()) return;
+          establecerGuardando(true);
+          try {
+            await alCrearUsuario({ nombre: nombre.trim(), avatarColor, rol });
+            establecerNombre("");
+            establecerCreando(false);
+          } catch (err) {
+            // Ya notificado
+          } finally {
+            establecerGuardando(false);
+          }
+        }
+
+        return (
+          <Modal abierto={abierto} titulo="Perfiles y Roles de Usuario" alCerrar={alCerrar} clase="modal-usuarios">
+            <div className="gestion-usuarios-contenido">
+              <p className="descripcion-modal-usuarios">
+                Cada usuario tiene su propio progreso de lectura independiente, historial de evaluaciones y recordatorios.
+                Los administradores pueden gestionar libros, categorías y usuarios.
+              </p>
+
+              <div className="lista-usuarios-modal">
+                {usuarios.map((u) => {
+                  const esActual = u.id === usuarioActivo?.id;
+                  return (
+                    <div key={u.id} className={`item-usuario-modal ${esActual ? "activo" : ""}`}>
+                      <div className="avatar-usuario-modal" style={{ backgroundColor: u.avatarColor }}>
+                        {u.nombre.split(/\s+/u).map((p) => p[0]).join("").slice(0, 2).toLocaleUpperCase("es")}
+                      </div>
+                      <div className="info-usuario-modal">
+                        <strong className="nombre-usuario-modal">{u.nombre}</strong>
+                        <span className={`badge-rol badge-rol-${u.rol || "lector"}`}>
+                          {u.rol === "admin" ? "👑 Administrador" : "📖 Lector"}
+                        </span>
+                      </div>
+                      <div className="acciones-usuario-modal">
+                        {esActual ? (
+                          <span className="etiqueta-activo">✓ Activo</span>
+                        ) : (
+                          <button
+                            type="button"
+                            className="boton boton-mini boton-primario"
+                            onClick={() => {
+                              alSeleccionarUsuario(u.id);
+                              alCerrar();
+                            }}
+                          >
+                            Usar perfil
+                          </button>
+                        )}
+                        {esAdmin && !esActual && (
+                          <button
+                            type="button"
+                            className="boton boton-mini boton-peligro-mini"
+                            title={`Eliminar usuario ${u.nombre}`}
+                            onClick={() => {
+                              if (window.confirm(`¿Seguro que deseas eliminar al usuario "${u.nombre}"?`)) {
+                                alEliminarUsuario(u.id);
+                              }
+                            }}
+                          >
+                            <Icono nombre="eliminar" tamano={13} />
+                          </button>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {esAdmin ? (
+                <div className="seccion-crear-usuario">
+                  {!creando ? (
+                    <button
+                      type="button"
+                      className="boton boton-secundario boton-expandir-crear-usuario"
+                      onClick={() => establecerCreando(true)}
+                    >
+                      <Icono nombre="mas" tamano={14} /> <span>Crear nuevo perfil con rol</span>
+                    </button>
+                  ) : (
+                    <form className="formulario-crear-usuario" onSubmit={enviarNuevoUsuario}>
+                      <h4>Nuevo perfil de usuario</h4>
+                      <div className="formulario-fila">
+                        <label className="campo-admin">Nombre
+                          <input
+                            required
+                            maxLength="50"
+                            placeholder="Nombre del lector o administrador"
+                            value={nombre}
+                            onChange={(e) => establecerNombre(e.target.value)}
+                          />
+                        </label>
+                      </div>
+                      <div className="formulario-fila formulario-fila-doble">
+                        <label className="campo-admin">Rol
+                          <select value={rol} onChange={(e) => establecerRol(e.target.value)}>
+                            <option value="lector">📖 Lector (Lectura y progreso)</option>
+                            <option value="admin">👑 Administrador (Acceso total)</option>
+                          </select>
+                        </label>
+                        <div className="campo-admin">
+                          <label>Color de avatar</label>
+                          <div className="paleta-colores-avatar">
+                            {colores.map((c) => (
+                              <button
+                                key={c}
+                                type="button"
+                                className={`muestra-color ${avatarColor === c ? "seleccionado" : ""}`}
+                                style={{ backgroundColor: c }}
+                                onClick={() => establecerColor(c)}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="formulario-acciones">
+                        <button type="button" className="boton boton-mini" onClick={() => establecerCreando(false)}>
+                          Cancelar
+                        </button>
+                        <button type="submit" className="boton boton-mini boton-primario" disabled={guardando}>
+                          {guardando ? "Creando…" : "Guardar usuario"}
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+              ) : (
+                <p className="nota-lector-usuarios">
+                  ℹ️ Estás navegando como <strong>Lector</strong>. Para crear o eliminar usuarios, libros o categorías, cambia al perfil de <strong>Administrador</strong>.
+                </p>
+              )}
+            </div>
+          </Modal>
+        );
+      }
+
       /** Controla filtros, consulta servicios y compone la vista principal. */
       function AplicacionBiblioteca() {
         const [modoConexion, establecerModoConexion] = React.useState(modoConexionActual);
@@ -10274,6 +10941,11 @@
           return () => { cancelado = true; };
         }, [modoConexion, notificar]);
 
+        const [modalUsuariosAbierto, establecerModalUsuariosAbierto] = React.useState(false);
+
+        const usuarioActivo = usuarios.find((perfil) => perfil.id === usuarioId) || usuarios[0];
+        const esAdmin = usuarioActivo?.rol === "admin";
+
         /** Alterna entre los perfiles disponibles y actualiza los paneles visibles. */
         function cambiarPerfil() {
           if (usuarios.length < 2) return;
@@ -10283,7 +10955,70 @@
           guardarUsuarioId(siguiente.id);
           establecerUsuarioId(siguiente.id);
           avisarCambioPerfil();
-          notificar(`Perfil activo: ${siguiente.nombre}.`);
+          notificar(`Perfil activo: ${siguiente.nombre} (${siguiente.rol === "admin" ? "👑 Administrador" : "📖 Lector"}).`);
+        }
+
+        function cambiarPerfilAId(id) {
+          const siguiente = usuarios.find((perfil) => perfil.id === id);
+          if (!siguiente) return;
+          usuarioIdActual = siguiente.id;
+          guardarUsuarioId(siguiente.id);
+          establecerUsuarioId(siguiente.id);
+          avisarCambioPerfil();
+          notificar(`Perfil activo: ${siguiente.nombre} (${siguiente.rol === "admin" ? "👑 Administrador" : "📖 Lector"}).`);
+        }
+
+        async function crearNuevoUsuario(datos) {
+          try {
+            const creado = await serviciosApi.crearUsuario(datos);
+            establecerUsuarios((prev) => [...prev, creado]);
+            notificar(`Usuario "${creado.nombre}" creado con rol ${creado.rol === "admin" ? "👑 Administrador" : "📖 Lector"}.`);
+            return creado;
+          } catch (fallo) {
+            notificar(fallo.message || "No se pudo crear el usuario.", "error");
+            throw fallo;
+          }
+        }
+
+        async function eliminarPerfilUsuario(id) {
+          try {
+            await serviciosApi.eliminarUsuario(id);
+            establecerUsuarios((prev) => prev.filter((u) => u.id !== id));
+            notificar("Perfil de usuario eliminado.");
+          } catch (fallo) {
+            notificar(fallo.message || "No se pudo eliminar el usuario.", "error");
+          }
+        }
+
+        async function eliminarLibro(libro) {
+          try {
+            await serviciosApi.eliminarLibro(libro.id);
+            establecerLibros((actuales) => actuales.filter((l) => l.id !== libro.id));
+            if (libroSeleccionado?.id === libro.id) {
+              seleccionarLibro(null);
+            }
+            serviciosApi.obtenerCategorias().then(establecerCategorias).catch(() => {});
+            notificar(`Libro "${libro.titulo}" eliminado con éxito.`);
+          } catch (fallo) {
+            notificar(fallo.message || "No se pudo eliminar el libro.", "error");
+          }
+        }
+
+        async function eliminarCategoria(categoria) {
+          try {
+            await serviciosApi.eliminarCategoria(categoria.id);
+            establecerCategorias((actuales) => actuales.filter((c) => c.id !== categoria.id));
+            if (categoriaSeleccionada === categoria.id) {
+              seleccionarCategoria(null);
+            }
+            serviciosApi.obtenerLibros({ busqueda: busqueda.trim() }).then(establecerLibros).catch(() => {});
+            if (libroSeleccionado?.categoriaId === categoria.id) {
+              seleccionarLibro(null);
+            }
+            notificar(`Categoría "${categoria.nombre}" eliminada con éxito.`);
+          } catch (fallo) {
+            notificar(fallo.message || "No se pudo eliminar la categoría.", "error");
+          }
         }
 
         /** Comprueba una conexión MCP recordada y vuelve a REST si no está disponible. */
@@ -10476,6 +11211,7 @@
           <Layout
             categorias={categorias}
             alCrearCategoria={manejarCategoriaCreada}
+            alEliminarCategoria={eliminarCategoria}
             categoriaSeleccionada={categoriaSeleccionada}
             alSeleccionarCategoria={seleccionarCategoriaEnCatalogo}
             cantidadTotal={categorias.reduce((total, categoria) => total + Number(categoria.cantidadLibros || 0), 0)}
@@ -10488,8 +11224,9 @@
             estadoConexionMcp={estadoConexionMcp}
             alCambiarModoConexion={cambiarModoConexion}
             usuarios={usuarios}
-            usuarioActivo={usuarios.find((perfil) => perfil.id === usuarioId)}
+            usuarioActivo={usuarioActivo}
             alCambiarPerfil={cambiarPerfil}
+            alAbrirGestionUsuarios={() => establecerModalUsuariosAbierto(true)}
             alIrACatalogo={() => {
               establecerDashboardActivo(false);
               seleccionarLibro(null);
@@ -10508,6 +11245,9 @@
                   libroTarjeta={libroSeleccionado}
                   alVolver={() => seleccionarLibro(null)}
                   alCambiarProgreso={actualizarAvanceEnCatalogo}
+                  alEditar={abrirFormularioLibro}
+                  alEliminar={eliminarLibro}
+                  esAdmin={esAdmin}
                 />
               ) : (
                 <>
@@ -10570,6 +11310,8 @@
                         libro={libro}
                         alAbrir={seleccionarLibro}
                         alEditar={abrirFormularioLibro}
+                        alEliminar={eliminarLibro}
+                        esAdmin={esAdmin}
                         style={{ "--indice-tarjeta": indice % 8 }}
                       />
                     ))}
@@ -10584,8 +11326,19 @@
                 categorias={categorias}
                 alCerrar={cerrarFormularioLibro}
                 alGuardar={guardarLibro}
+                alEliminar={eliminarLibro}
+                esAdmin={esAdmin}
                 alCrearCategoria={manejarCategoriaCreada}
                 autoAbrirSelector={autoExplorarPdf}
+              />
+              <ModalGestionUsuarios
+                abierto={modalUsuariosAbierto}
+                alCerrar={() => establecerModalUsuariosAbierto(false)}
+                usuarios={usuarios}
+                usuarioActivo={usuarioActivo}
+                alSeleccionarUsuario={cambiarPerfilAId}
+                alCrearUsuario={crearNuevoUsuario}
+                alEliminarUsuario={eliminarPerfilUsuario}
               />
             </>
           </Layout>

@@ -552,8 +552,8 @@ const progresoInicial = [
 
 // Colores contrastantes distinguen los perfiles también en el selector.
 const usuariosIniciales = [
-  { id: 1, nombre: "Lector 1", avatarColor: "#e2b04a" },
-  { id: 2, nombre: "Lector 2", avatarColor: "#6179c9" },
+  { id: 1, nombre: "Lector 1", avatarColor: "#e2b04a", rol: "admin" as const },
+  { id: 2, nombre: "Lector 2", avatarColor: "#6179c9", rol: "lector" as const },
 ];
 
 // Recordatorios activos para cada perfil.

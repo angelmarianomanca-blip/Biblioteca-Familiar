@@ -1,6 +1,7 @@
 import { asc as ascendente, count as contar, eq as igual } from "drizzle-orm";
 import { conexionCompartida } from "../db/instancia.js";
 import { categorias, libros } from "../db/esquema.js";
+import { Libros } from "./libros.js";
 import { normalizarCamposDeTexto } from "./normalizacion.js";
 
 /** Operaciones CRUD para las categorías de la biblioteca. */
@@ -77,11 +78,16 @@ export class Categorias {
     return categoriaActualizada;
   }
 
-  /** Algoritmo: intenta borrar por ID y devuelve si se eliminó una fila. La
-   * clave foránea impide borrar la categoría mientras tenga libros asociados.
-   */
+  /** Elimina la categoría y todos los libros asociados con su contenido en cascada. */
   static async eliminar(id: number): Promise<boolean> {
     const { baseDatos } = await conexionCompartida;
+    const librosEnCategoria = await baseDatos
+      .select({ id: libros.id })
+      .from(libros)
+      .where(igual(libros.categoriaId, id));
+    for (const lib of librosEnCategoria) {
+      await Libros.eliminar(lib.id);
+    }
     const eliminadas = await baseDatos
       .delete(categorias)
       .where(igual(categorias.id, id))

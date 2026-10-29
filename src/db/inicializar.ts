@@ -10,7 +10,8 @@ const SENTENCIAS_DDL: readonly string[] = [
   `CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     nombre TEXT NOT NULL,
-    avatarColor TEXT NOT NULL
+    avatarColor TEXT NOT NULL,
+    rol TEXT NOT NULL DEFAULT 'lector'
   )`,
   `CREATE TABLE IF NOT EXISTS categorias (
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -126,6 +127,23 @@ export async function asegurarEsquemaYDatos(
   try {
     for (const sql of SENTENCIAS_DDL) {
       await cliente.execute(sql);
+    }
+
+    // Migración: añade columna 'rol' a usuarios si no existe en bases antiguas.
+    try {
+      const columnas = await cliente.execute("PRAGMA table_info(usuarios)");
+      const nombres = new Set(
+        (columnas.rows as Array<Record<string, unknown>>).map((c) => c.name),
+      );
+      if (!nombres.has("rol")) {
+        await cliente.execute(
+          "ALTER TABLE usuarios ADD COLUMN rol TEXT NOT NULL DEFAULT 'lector'",
+        );
+      }
+      // El primer usuario siempre recibe el rol de administrador.
+      await cliente.execute("UPDATE usuarios SET rol = 'admin' WHERE id = 1");
+    } catch {
+      // En bases nuevas ya viene definido en el DDL; en Turso PRAGMA puede fallar.
     }
 
     // Comprueba si la base tiene categorías cargadas

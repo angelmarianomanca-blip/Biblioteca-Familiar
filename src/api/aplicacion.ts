@@ -18,7 +18,8 @@ const rutaTrabajo = resolverRuta(process.cwd(), "public");
 const directorioPublico = existeRuta(rutaModulo) ? rutaModulo : rutaTrabajo;
 
 // El middleware transforma cuerpos JSON en objetos para los controladores.
-aplicacion.use(express.json());
+// El límite elevado permite recibir el texto completo de PDFs extensos (cientos de páginas).
+aplicacion.use(express.json({ limit: "50mb" }));
 
 // El servidor MCP comparte esta aplicación Express y sus servicios de datos.
 montarServidorMcp(aplicacion);

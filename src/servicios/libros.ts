@@ -28,6 +28,10 @@ export class Libros {
       "descripcion",
       "contenidoCompleto",
     ]);
+    if (!datosNormalizados.portadaUrl?.trim()) {
+      datosNormalizados.portadaUrl =
+        "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80";
+    }
     const [libroCreado] = await baseDatos
       .insert(libros)
       .values(datosNormalizados)

@@ -94,17 +94,19 @@ export const manejarErrorHttp: ErrorRequestHandler = (
     return;
   }
 
-  // Express incluye un estado 400 en los errores de JSON mal formado.
+  // Express incluye un estado numérico en los errores de parser (ej. 400 malformado, 413 límite excedido).
   const estadoDeParser =
     typeof error === "object" && error !== null && "status" in error
       ? Number(error.status)
       : undefined;
+  const esEstadoClienteParser =
+    typeof estadoDeParser === "number" && estadoDeParser >= 400 && estadoDeParser < 500;
   const estado = error instanceof ErrorHttp
     ? error.estado
     : error instanceof RangeError
       ? 400
-      : estadoDeParser === 400
-        ? 400
+      : esEstadoClienteParser
+        ? estadoDeParser
         : 500;
   const mensaje = estado === 500
     ? "Error interno del servidor."
